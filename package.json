@@ -1,7 +1,8 @@
 {
   "scripts": {
     "test": "npm test --prefix next",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "gen:theme-typings": "npm run gen:theme-typings --prefix next"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.1",
