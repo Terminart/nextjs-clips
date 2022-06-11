@@ -10,18 +10,24 @@ jobs:
 
     steps:
       - name: node -v
-        run: node -v
+        run: | 
+          lsb_release -a
+          node -v
 
   windows:
     runs-on: windows-latest
 
     steps:
       - name: node -v
-        run: node -v
+        run: |
+          winver
+          node -v
 
   mac:
     runs-on: macos-latest
 
     steps:
       - name: node -v
-        run: node -v
+        run: |
+          sw_vers
+          node -v
