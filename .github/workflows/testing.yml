@@ -13,8 +13,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: npm install
+      - name: npm install root
         run: npm i
+        
+      - name: npm install next
+        run: |
+          cd next
+          npm i
 
-      - name: run jest
+      - name: run test
         run: npm run test
