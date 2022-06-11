@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: os version
-        run: winver
+        run: ver
       - name: node -v
         run: node -v
 
