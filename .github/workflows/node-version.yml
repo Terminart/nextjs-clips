@@ -9,25 +9,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: os version
+        run: lsb_release -a
       - name: node -v
-        run: | 
-          lsb_release -a
-          node -v
+        run: node -v
 
   windows:
     runs-on: windows-latest
 
     steps:
+      - name: os version
+        run: winver
       - name: node -v
-        run: |
-          winver
-          node -v
+        run: node -v
 
   mac:
     runs-on: macos-latest
 
     steps:
+      - name: os version
+        run: sw_vers
       - name: node -v
-        run: |
-          sw_vers
-          node -v
+        run: node -v
