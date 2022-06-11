@@ -1,0 +1,27 @@
+name: NODE_VERSION
+
+on:
+
+  workflow_dispatch:
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: node -v
+        run: node -v
+
+  windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: node -v
+        run: node -v
+
+  mac:
+    runs-on: macos-latest
+
+    steps:
+      - name: node -v
+        run: node -v
