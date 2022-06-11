@@ -9,25 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: os version
-        run: lsb_release -a
-      - name: node -v
-        run: node -v
-
-  windows:
-    runs-on: windows-latest
-
-    steps:
-      - name: os version
-        run: systeminfo
-      - name: node -v
-        run: node -v
-
-  mac:
-    runs-on: macos-latest
-
-    steps:
-      - name: os version
-        run: sw_vers
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
       - name: node -v
         run: node -v
