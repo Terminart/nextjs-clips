@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: os version
-        run: ver
+        run: systeminfo
       - name: node -v
         run: node -v
 
