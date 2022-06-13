@@ -1,7 +1,9 @@
+import { mode, StyleFunctionProps } from '@chakra-ui/theme-tools'
+
 export const styles = {
-  global: {
+  global: (props: StyleFunctionProps) => ({
     body: {
-      bgColor: 'sample.gray',
+      bgColor: mode('white', 'black.500')(props),
     },
-  },
+  }),
 }
