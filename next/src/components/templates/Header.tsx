@@ -1,12 +1,12 @@
 import {
   Flex,
   HStack,
-  IconButton,
   Text,
   useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react'
 import { HamburgerIcon, MoonIcon, SearchIcon, SunIcon } from '@chakra-ui/icons'
+import { IconButton } from '@/components/atoms/IconButton'
 
 export const Header = () => {
   const { toggleColorMode } = useColorMode()
@@ -15,29 +15,28 @@ export const Header = () => {
     <Flex
       w={'full'}
       h={'60px'}
-      bg={'aliceblue'}
       align={'center'}
       justify={'space-between'}
-      px={{ base: 7 }}
+      px={7}
+      as={'header'}
+      boxShadow={useColorModeValue('base', 'palegreen.blur')}
     >
       <Text textStyle={'headerLogo'}>Terminart</Text>
-      <HStack textStyle={'headerLink'} spacing={5}>
+      <HStack textStyle={'headerLink'} spacing={8}>
         <Text>Home</Text>
         <Text>Components</Text>
         <Text>Motion</Text>
         <Text>Wizard</Text>
         <Text>List</Text>
       </HStack>
-      <HStack>
+      <HStack spacing={5}>
         <IconButton
-          aria-label={'change color mode'}
+          aria-label={'toggle color mode'}
           icon={useColorModeValue(<MoonIcon />, <SunIcon />)}
-          bg={'transparent'}
           onClick={toggleColorMode}
-          size={'sm'}
         />
-        <SearchIcon boxSize={8} />
-        <HamburgerIcon boxSize={8} />
+        <IconButton aria-label={'search'} icon={<SearchIcon />} />
+        <IconButton aria-label={'menu'} icon={<HamburgerIcon />} />
       </HStack>
     </Flex>
   )
