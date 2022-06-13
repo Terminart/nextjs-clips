@@ -1,8 +1,1 @@
-export const Button = {
-  variants: {
-    orange: {
-      bg: 'orange',
-      color: 'white',
-    },
-  },
-}
+export const Button = {}

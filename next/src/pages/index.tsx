@@ -1,15 +1,8 @@
 import type { NextPage } from 'next'
-import { Button, Heading } from '@chakra-ui/react'
+import { Top } from '@/components/templates/Top'
 
 const Home: NextPage = () => {
-  return (
-    <>
-      <Heading>
-        Welcome to <a href="https://nextjs.org">Next.js!</a>
-      </Heading>
-      <Button variant={'orange'}>test</Button>
-    </>
-  )
+  return <Top />
 }
 
 export default Home
