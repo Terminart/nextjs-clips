@@ -1,7 +1,16 @@
-import { Flex, HStack, Text } from '@chakra-ui/react'
+import {
+  Flex,
+  HStack,
+  IconButton,
+  Text,
+  useColorMode,
+  useColorModeValue,
+} from '@chakra-ui/react'
 import { HamburgerIcon, MoonIcon, SearchIcon, SunIcon } from '@chakra-ui/icons'
 
 export const Header = () => {
+  const { toggleColorMode } = useColorMode()
+
   return (
     <Flex
       w={'full'}
@@ -20,8 +29,13 @@ export const Header = () => {
         <Text>List</Text>
       </HStack>
       <HStack>
-        <SunIcon boxSize={8} />
-        <MoonIcon boxSize={8} />
+        <IconButton
+          aria-label={'change color mode'}
+          icon={useColorModeValue(<MoonIcon />, <SunIcon />)}
+          bg={'transparent'}
+          onClick={toggleColorMode}
+          size={'sm'}
+        />
         <SearchIcon boxSize={8} />
         <HamburgerIcon boxSize={8} />
       </HStack>
