@@ -6,5 +6,6 @@ export const colors = {
   },
   palegreen: {
     500: '#00FFA3',
+    700: '#1eb08c',
   },
 }

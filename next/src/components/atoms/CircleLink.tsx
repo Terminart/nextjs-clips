@@ -12,17 +12,19 @@ export function CircleLink({ title, image, ...props }: Props) {
       pos={'relative'}
       size={{ base: '14em', md: '18em' }}
       border={'3px solid'}
-      borderColor={'palegreen.500'} // TODO: Color mode
+      borderColor={'palegreen.700'} // TODO: Color mode
       overflow={'hidden'}
+      boxShadow={'palegreen.700.spread'}
       _hover={{
-        boxShadow: '0px 0px 6px 3px #00FFA3',
+        boxShadow: 'palegreen.700.highSpread',
       }}
-      {...props}
       sx={{
         img: {
-          filter: 'blur(1px)',
+          filter: 'blur(1.7px)',
         },
       }}
+      role={'group'}
+      {...props}
     >
       {image && (
         <Image
@@ -35,8 +37,8 @@ export function CircleLink({ title, image, ...props }: Props) {
       <Divider
         pos={'absolute'}
         bottom={'25%'}
-        borderColor={'palegreen.500'}
-        borderTopWidth={'2px'}
+        borderColor={'palegreen.700'}
+        borderTopWidth={'1px'}
         opacity={0.9}
       />
       <Center
@@ -52,6 +54,9 @@ export function CircleLink({ title, image, ...props }: Props) {
           fontSize={{ base: '1.4em', md: '1.8em' }}
           top={'10%'}
           userSelect={'none'}
+          _groupHover={{
+            color: 'palegreen.700',
+          }}
         >
           {title}
         </Text>
