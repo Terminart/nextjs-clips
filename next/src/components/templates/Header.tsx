@@ -1,6 +1,7 @@
 import {
   Flex,
   HStack,
+  Show,
   Text,
   useColorMode,
   useColorModeValue,
@@ -22,13 +23,14 @@ export const Header = () => {
       boxShadow={useColorModeValue('base', 'palegreen.500.blur')}
     >
       <Text textStyle={'headerLogo'}>Terminart</Text>
-      <HStack textStyle={'headerLink'} spacing={8}>
-        <Text>Home</Text>
-        <Text>Components</Text>
-        <Text>Motion</Text>
-        <Text>Wizard</Text>
-        <Text>List</Text>
-      </HStack>
+      <Show above={'md'}>
+        <HStack textStyle={'headerLink'} spacing={8}>
+          <Text>Top</Text>
+          <Text>Gallery</Text>
+          <Text>Motion</Text>
+          <Text>Integration</Text>
+        </HStack>
+      </Show>
       <HStack spacing={5}>
         <IconButton
           aria-label={'toggle color mode'}
