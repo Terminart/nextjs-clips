@@ -1,24 +1,37 @@
-import { Circle, Divider, SquareProps, Text } from '@chakra-ui/react'
+import { Center, Circle, Divider, SquareProps, Text } from '@chakra-ui/react'
+import Image from 'next/image'
 
 type Props = SquareProps & {
   title: string
+  image?: string
 }
 
-export function CircleLink({ title, ...props }: Props) {
+export function CircleLink({ title, image, ...props }: Props) {
   return (
     <Circle
       pos={'relative'}
-      bg={'black.300'} // TODO: カラーモード対応
       size={{ base: '14em', md: '18em' }}
       border={'3px solid'}
       borderColor={'palegreen.500'} // TODO: Color mode
       overflow={'hidden'}
       _hover={{
-        bg: 'black.200',
         boxShadow: '0px 0px 6px 3px #00FFA3',
       }}
       {...props}
+      sx={{
+        img: {
+          filter: 'blur(1px)',
+        },
+      }}
     >
+      {image && (
+        <Image
+          src={image}
+          layout={'fill'}
+          objectFit={'cover'}
+          alt={'link image'}
+        />
+      )}
       <Divider
         pos={'absolute'}
         bottom={'25%'}
@@ -26,15 +39,23 @@ export function CircleLink({ title, ...props }: Props) {
         borderTopWidth={'2px'}
         opacity={0.9}
       />
-      <Text
+      <Center
         pos={'absolute'}
-        bottom={'7%'}
-        color={'white'} // TODO: color mode
-        fontSize={{ base: '1.4em', md: '1.8em' }}
-        userSelect={'none'}
+        w={'full'}
+        h={'25%'}
+        bottom={0}
+        bg={'blackAlpha.700'}
       >
-        {title}
-      </Text>
+        <Text
+          pos={'absolute'}
+          color={'white'}
+          fontSize={{ base: '1.4em', md: '1.8em' }}
+          top={'10%'}
+          userSelect={'none'}
+        >
+          {title}
+        </Text>
+      </Center>
     </Circle>
   )
 }
