@@ -2,11 +2,11 @@ import {
   Center,
   Circle,
   Divider,
+  Image,
   SquareProps,
   Text,
   useColorModeValue,
 } from '@chakra-ui/react'
-import Image from 'next/image'
 
 type Props = SquareProps & {
   title: string
@@ -27,19 +27,15 @@ export function CircleLink({ title, image, ...props }: Props) {
       _hover={{
         boxShadow: useColorModeValue('2xl', 'palegreen.700.highSpread'),
       }}
-      sx={{
-        img: {
-          filter: 'blur(1.7px)',
-        },
-      }}
       role={'group'}
       {...props}
     >
       {image && (
         <Image
           src={image}
-          layout={'fill'}
-          objectFit={'cover'}
+          h={'full'}
+          fit={'cover'}
+          filter={'blur(1.2px)'}
           alt={'link image'}
         />
       )}
