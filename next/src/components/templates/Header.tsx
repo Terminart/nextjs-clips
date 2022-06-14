@@ -19,7 +19,7 @@ export const Header = () => {
       justify={'space-between'}
       px={7}
       as={'header'}
-      boxShadow={useColorModeValue('base', 'palegreen.blur')}
+      boxShadow={useColorModeValue('base', 'palegreen.500.blur')}
     >
       <Text textStyle={'headerLogo'}>Terminart</Text>
       <HStack textStyle={'headerLink'} spacing={8}>
