@@ -1,4 +1,11 @@
-import { Center, Circle, Divider, SquareProps, Text } from '@chakra-ui/react'
+import {
+  Center,
+  Circle,
+  Divider,
+  SquareProps,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react'
 import Image from 'next/image'
 
 type Props = SquareProps & {
@@ -7,16 +14,18 @@ type Props = SquareProps & {
 }
 
 export function CircleLink({ title, image, ...props }: Props) {
+  const color = useColorModeValue('green.200', 'palegreen.700')
+
   return (
     <Circle
       pos={'relative'}
       size={{ base: '14em', md: '18em' }}
       border={'3px solid'}
-      borderColor={'palegreen.700'} // TODO: Color mode
+      borderColor={color}
       overflow={'hidden'}
-      boxShadow={'palegreen.700.spread'}
+      boxShadow={useColorModeValue('base', 'palegreen.700.spread')}
       _hover={{
-        boxShadow: 'palegreen.700.highSpread',
+        boxShadow: useColorModeValue('2xl', 'palegreen.700.highSpread'),
       }}
       sx={{
         img: {
@@ -37,7 +46,7 @@ export function CircleLink({ title, image, ...props }: Props) {
       <Divider
         pos={'absolute'}
         bottom={'25%'}
-        borderColor={'palegreen.700'}
+        borderColor={color}
         borderTopWidth={'1px'}
         opacity={0.9}
       />
@@ -55,7 +64,7 @@ export function CircleLink({ title, image, ...props }: Props) {
           top={'10%'}
           userSelect={'none'}
           _groupHover={{
-            color: 'palegreen.700',
+            color,
           }}
         >
           {title}
