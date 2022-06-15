@@ -4,7 +4,7 @@ export const textStyles = {
     fontWeight: 'bold',
     letterSpacing: '0.03em',
   },
-  headerLink: {
+  categoryLink: {
     fontSize: '20px',
     fontWeight: 'bold',
   },
