@@ -5,5 +5,8 @@ export const styles = {
     body: {
       bgColor: mode('white', 'black.500')(props),
     },
+    '#__next': {
+      bgColor: 'inherit',
+    },
   }),
 }
