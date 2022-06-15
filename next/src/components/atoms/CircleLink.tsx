@@ -14,7 +14,7 @@ type Props = SquareProps & {
 }
 
 export function CircleLink({ title, image, ...props }: Props) {
-  const color = useColorModeValue('green.200', 'palegreen.700')
+  const color = useColorModeValue('gray.300', 'palegreen.700')
 
   return (
     <Circle
@@ -25,7 +25,7 @@ export function CircleLink({ title, image, ...props }: Props) {
       overflow={'hidden'}
       boxShadow={useColorModeValue('base', 'palegreen.700.spread')}
       _hover={{
-        boxShadow: useColorModeValue('2xl', 'palegreen.700.highSpread'),
+        boxShadow: useColorModeValue('dark-lg', 'palegreen.700.highSpread'),
       }}
       role={'group'}
       {...props}
