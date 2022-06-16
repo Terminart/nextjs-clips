@@ -34,11 +34,26 @@ const SP = () => {
 }
 
 const Gallery = (props: SquareProps) => (
-  <CircleLink title={'Gallery'} image={'/gallery.jpg'} {...props} />
+  <CircleLink
+    href={'/gallery'}
+    title={'Gallery'}
+    image={'/gallery.jpg'}
+    {...props}
+  />
 )
 const Motion = (props: SquareProps) => (
-  <CircleLink title={'Motion'} image={'/motion.jpg'} {...props} />
+  <CircleLink
+    href={'/motion'}
+    title={'Motion'}
+    image={'/motion.jpg'}
+    {...props}
+  />
 )
 const Integration = (props: SquareProps) => (
-  <CircleLink title={'Integration'} image={'/integration.jpg'} {...props} />
+  <CircleLink
+    href={'/integration'}
+    title={'Integration'}
+    image={'/integration.jpg'}
+    {...props}
+  />
 )

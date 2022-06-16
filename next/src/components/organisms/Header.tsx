@@ -17,7 +17,8 @@ import {
 } from '@chakra-ui/icons'
 import { IconButton } from '@/components/atoms/IconButton'
 import { HeaderMenu } from '@/components/organisms/HeaderMenu'
-import { CategoryLinks } from '@/components/molecules/CategoryLinks'
+import { CategoryLinks } from '@/components/organisms/CategoryLinks'
+import Link from 'next/link'
 
 const HEIGHT = 60
 
@@ -39,7 +40,11 @@ export const Header = () => {
         zIndex={'sticky'}
         bg={'inherit'}
       >
-        <Text textStyle={'headerLogo'}>Terminart</Text>
+        <Link href={'/'} passHref>
+          <Text as={'a'} textStyle={'headerLogo'}>
+            Terminart
+          </Text>
+        </Link>
         <Show above={'md'}>
           <CategoryLinks direction={'row'} spacing={8} />
         </Show>
