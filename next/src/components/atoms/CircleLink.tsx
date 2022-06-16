@@ -14,7 +14,7 @@ type Props = SquareProps & {
 }
 
 export function CircleLink({ title, image, ...props }: Props) {
-  const color = useColorModeValue('gray.300', 'palegreen.700')
+  const color = useColorModeValue('gray.400', 'palegreen.700')
 
   return (
     <Circle
