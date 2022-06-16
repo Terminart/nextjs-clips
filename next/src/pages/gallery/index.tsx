@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { Gallery } from '@/components/templates/Gallery'
+import { CategoryTop } from '@/components/templates/CategoryTop'
 import { SquareLinkProps } from '@/components/atoms/SquareLink'
 
 const sampleLinks: SquareLinkProps[] = [
@@ -31,7 +31,7 @@ const sampleLinks: SquareLinkProps[] = [
 ]
 
 const Page: NextPage = () => {
-  return <Gallery links={sampleLinks} />
+  return <CategoryTop links={sampleLinks} />
 }
 
 export default Page

@@ -1,7 +1,7 @@
 import { Box, SquareProps, useBreakpointValue, VStack } from '@chakra-ui/react'
 import { CircleLink } from '@/components/atoms/CircleLink'
 
-export const Top = () => {
+export const Home = () => {
   return useBreakpointValue({ base: <SP />, md: <PC /> }) || <PC />
 }
 

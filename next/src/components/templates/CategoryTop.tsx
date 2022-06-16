@@ -5,7 +5,7 @@ type Props = {
   links: SquareLinkProps[]
 }
 
-export const Gallery = ({ links }: Props) => {
+export const CategoryTop = ({ links }: Props) => {
   return (
     <SimpleGrid
       spacingX={20}
