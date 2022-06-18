@@ -21,6 +21,25 @@ export const integrationLink: LinkWithImageProps = {
   title: 'Integration',
   image: '/integration.jpg',
 }
+export const loginLink: LinkWithImageProps = {
+  href: '/login',
+  title: 'Login',
+  image: '',
+}
+export const signupLink: LinkWithImageProps = {
+  href: '/signup',
+  title: 'SignUp',
+  image: '',
+}
+export const headerLinks = [homeLink, galleryLink, motionLink, integrationLink]
+export const menuLinks = [
+  homeLink,
+  galleryLink,
+  motionLink,
+  integrationLink,
+  loginLink,
+  signupLink,
+]
 
 export function isHrefInCategory(href: string, router: NextRouter) {
   return href === router.pathname.split(/(?=\/)/g)[0]
