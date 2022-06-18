@@ -38,6 +38,8 @@ export function CircleLink({ href, title, image, ...props }: Props) {
             fit={'cover'}
             filter={'blur(1.2px)'}
             alt={'link image'}
+            userSelect={'none'}
+            draggable={false}
           />
         )}
         <Divider

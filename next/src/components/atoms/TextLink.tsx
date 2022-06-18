@@ -4,12 +4,12 @@ import { Text, useColorModeValue } from '@chakra-ui/react'
 
 type Props = {
   href: string
-  selected?: boolean
+  isSelected?: boolean
 }
 
 export const TextLink = ({
   href,
-  selected,
+  isSelected,
   children,
 }: PropsWithChildren<Props>) => {
   const selectedStyles = useColorModeValue(
@@ -19,7 +19,7 @@ export const TextLink = ({
 
   return (
     <Link href={href} passHref>
-      <Text as={'a'} {...(selected ? selectedStyles : {})}>
+      <Text as={'a'} {...(isSelected ? selectedStyles : {})}>
         {children}
       </Text>
     </Link>

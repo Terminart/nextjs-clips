@@ -17,14 +17,17 @@ import {
 } from '@chakra-ui/icons'
 import { IconButton } from '@/components/atoms/IconButton'
 import { HeaderMenu } from '@/components/organisms/HeaderMenu'
-import { CategoryLinks } from '@/components/organisms/CategoryLinks'
+import { TextLinks } from '@/components/molecules/TextLinks'
 import Link from 'next/link'
+import { headerLinks, isHrefInCategory } from '@/lib/path'
+import { useRouter } from 'next/router'
 
 const HEIGHT = 60
 
 export const Header = () => {
   const { toggleColorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const router = useRouter()
 
   return (
     <Box bg={'inherit'}>
@@ -46,7 +49,12 @@ export const Header = () => {
           </Text>
         </Link>
         <Show above={'md'}>
-          <CategoryLinks direction={'row'} spacing={8} selection={true} />
+          <TextLinks
+            links={headerLinks}
+            direction={'row'}
+            spacing={8}
+            isSelected={(link) => isHrefInCategory(link.href, router)}
+          />
         </Show>
         <HStack spacing={5}>
           <IconButton
