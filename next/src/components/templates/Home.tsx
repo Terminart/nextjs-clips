@@ -1,7 +1,8 @@
 import { Box, SquareProps, useBreakpointValue, VStack } from '@chakra-ui/react'
 import { CircleLink } from '@/components/atoms/CircleLink'
+import { galleryLink, integrationLink, motionLink } from '@/lib/path'
 
-export const Top = () => {
+export const Home = () => {
   return useBreakpointValue({ base: <SP />, md: <PC /> }) || <PC />
 }
 
@@ -34,11 +35,9 @@ const SP = () => {
 }
 
 const Gallery = (props: SquareProps) => (
-  <CircleLink title={'Gallery'} image={'/gallery.jpg'} {...props} />
+  <CircleLink {...galleryLink} {...props} />
 )
-const Motion = (props: SquareProps) => (
-  <CircleLink title={'Motion'} image={'/motion.jpg'} {...props} />
-)
+const Motion = (props: SquareProps) => <CircleLink {...motionLink} {...props} />
 const Integration = (props: SquareProps) => (
-  <CircleLink title={'Integration'} image={'/integration.jpg'} {...props} />
+  <CircleLink {...integrationLink} {...props} />
 )

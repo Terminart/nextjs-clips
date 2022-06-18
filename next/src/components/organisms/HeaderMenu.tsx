@@ -5,7 +5,7 @@ import {
   useColorModeValue,
   useOutsideClick,
 } from '@chakra-ui/react'
-import { CategoryLinks } from '@/components/molecules/CategoryLinks'
+import { CategoryLinks } from '@/components/organisms/CategoryLinks'
 
 type Props = {
   isOpen: boolean
@@ -24,7 +24,7 @@ export const HeaderMenu = ({ isOpen, onClose, paddingTop }: Props) => {
     <Slide
       direction={'top'}
       in={isOpen}
-      style={{ paddingTop, zIndex: 'var(--chakra-zIndices-docked)' }}
+      style={{ paddingTop, zIndex: 'var(--chakra-zIndices-dropdown)' }}
       unmountOnExit={true}
       ref={ref}
     >
