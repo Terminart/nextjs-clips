@@ -25,6 +25,7 @@ export const SquareLink = ({ href, image, title }: LinkWithImageProps) => {
             fontSize={32}
             zIndex={'docked'}
             py={2}
+            userSelect={'none'}
           >
             {title}
           </Text>
@@ -36,6 +37,8 @@ export const SquareLink = ({ href, image, title }: LinkWithImageProps) => {
           fit={'cover'}
           filter={'blur(1.2px)'}
           alt={'link image'}
+          userSelect={'none'}
+          draggable={false}
         />
       </Box>
     </Link>
