@@ -17,7 +17,11 @@ const links: LinkWithImageProps[] = [
   integrationLink,
 ]
 
-export function CategoryLinks(props: StackProps) {
+type Props = StackProps & {
+  selection?: boolean
+}
+
+export function CategoryLinks({ selection, ...props }: Props) {
   const router = useRouter()
 
   return (
@@ -26,7 +30,7 @@ export function CategoryLinks(props: StackProps) {
         <TextLink
           key={i}
           href={v.href}
-          selected={isHrefInCategory(v.href, router)}
+          selected={selection && isHrefInCategory(v.href, router)}
         >
           {v.title}
         </TextLink>

@@ -46,7 +46,7 @@ export const Header = () => {
           </Text>
         </Link>
         <Show above={'md'}>
-          <CategoryLinks direction={'row'} spacing={8} />
+          <CategoryLinks direction={'row'} spacing={8} selection={true} />
         </Show>
         <HStack spacing={5}>
           <IconButton
