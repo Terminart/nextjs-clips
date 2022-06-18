@@ -15,7 +15,7 @@ export const Login = () => {
       border={'2px solid'}
       borderColor={useColorModeValue('gray.400', 'palegreen.500')}
       borderRadius={'xl'}
-      mt={20}
+      my={20}
       mx={'auto'}
       p={8}
     >
