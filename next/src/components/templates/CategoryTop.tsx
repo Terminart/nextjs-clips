@@ -1,8 +1,9 @@
 import { SimpleGrid } from '@chakra-ui/react'
-import { SquareLink, SquareLinkProps } from '@/components/atoms/SquareLink'
+import { SquareLink } from '@/components/atoms/SquareLink'
+import { LinkWithImageProps } from '@/types/link'
 
 type Props = {
-  links: SquareLinkProps[]
+  links: LinkWithImageProps[]
 }
 
 export const CategoryTop = ({ links }: Props) => {

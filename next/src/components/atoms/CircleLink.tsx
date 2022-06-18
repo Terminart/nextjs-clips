@@ -8,12 +8,9 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import Link from 'next/link'
+import { LinkWithImageProps } from '@/types/link'
 
-type Props = SquareProps & {
-  href: string
-  title: string
-  image?: string
-}
+type Props = SquareProps & LinkWithImageProps
 
 export function CircleLink({ href, title, image, ...props }: Props) {
   const color = useColorModeValue('gray.400', 'palegreen.700')

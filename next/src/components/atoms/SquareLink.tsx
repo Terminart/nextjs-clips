@@ -1,13 +1,8 @@
 import { Box, Center, Image, Text, useColorModeValue } from '@chakra-ui/react'
 import Link from 'next/link'
+import { LinkWithImageProps } from '@/types/link'
 
-export type SquareLinkProps = {
-  href: string
-  image: string
-  title: string
-}
-
-export const SquareLink = ({ href, image, title }: SquareLinkProps) => {
+export const SquareLink = ({ href, image, title }: LinkWithImageProps) => {
   return (
     <Link href={href} passHref>
       <Box

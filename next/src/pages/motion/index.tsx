@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
 import { CategoryTop } from '@/components/templates/CategoryTop'
-import { SquareLinkProps } from '@/components/atoms/SquareLink'
+import { LinkWithImageProps } from '@/types/link'
 
-const sampleLinks: SquareLinkProps[] = [
+const sampleLinks: LinkWithImageProps[] = [
   {
     href: '',
     image: '/gallery.jpg',
