@@ -51,3 +51,13 @@ export const menuLinks = _.chain(links).values().value()
 export function isHrefInCategory(href: string, router: NextRouter) {
   return href === router.pathname.split(/(?=\/)/g)[0]
 }
+
+export function toNestedLinks(
+  parentPath: string,
+  links: LinkWithImageProps[]
+): LinkWithImageProps[] {
+  return links.map((v) => ({
+    ...v,
+    href: `${parentPath}${v.href}`,
+  }))
+}
