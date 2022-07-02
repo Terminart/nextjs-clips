@@ -9,12 +9,12 @@ const sampleData: GalleryTabProps = {
       group: undefined,
     },
     {
-      title: 'Even',
-      group: 'even',
-    },
-    {
       title: 'Odd',
       group: 'odd',
+    },
+    {
+      title: 'Even',
+      group: 'even',
     },
   ],
   cards: [...Array(10)].map((v, i) => ({
@@ -44,7 +44,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
   return {
     props: context.query?.group
       ? {
-          remainder: context.query.group === 'even' ? 1 : 0,
+          remainder: context.query.group === 'odd' ? 1 : 0,
         }
       : {},
   }
