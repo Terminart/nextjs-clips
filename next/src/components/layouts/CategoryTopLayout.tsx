@@ -5,7 +5,7 @@ type Props = {
   children: ReactNode
 }
 
-export const CategoryLayout = ({ children }: Props) => {
+export const CategoryTopLayout = ({ children }: Props) => {
   return (
     <DefaultLayout my={{ base: 8, sm: 16 }} mx={{ base: 8, sm: 20 }}>
       {children}

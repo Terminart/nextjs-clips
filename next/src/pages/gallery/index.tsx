@@ -1,7 +1,7 @@
 import { CategoryTop } from '@/components/templates/CategoryTop'
 import { toNestedLinks } from '@/lib/path'
 import { NextPageWithLayout } from '@/pages/_app'
-import { CategoryLayout } from '@/components/layouts/CategoryLayout'
+import { CategoryTopLayout } from '@/components/layouts/CategoryTopLayout'
 
 const links = toNestedLinks('/gallery', [
   {
@@ -14,6 +14,6 @@ const links = toNestedLinks('/gallery', [
 const Page: NextPageWithLayout = () => {
   return <CategoryTop links={links} />
 }
-Page.getLayout = (page) => <CategoryLayout>{page}</CategoryLayout>
+Page.getLayout = (page) => <CategoryTopLayout>{page}</CategoryTopLayout>
 
 export default Page

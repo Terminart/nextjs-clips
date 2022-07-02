@@ -1,7 +1,7 @@
 import { CategoryTop } from '@/components/templates/CategoryTop'
 import { LinkWithImageProps } from '@/types/link'
 import { NextPageWithLayout } from '@/pages/_app'
-import { CategoryLayout } from '@/components/layouts/CategoryLayout'
+import { CategoryTopLayout } from '@/components/layouts/CategoryTopLayout'
 
 const sampleLinks: LinkWithImageProps[] = [
   {
@@ -24,6 +24,6 @@ const sampleLinks: LinkWithImageProps[] = [
 const Page: NextPageWithLayout = () => {
   return <CategoryTop links={sampleLinks} />
 }
-Page.getLayout = (page) => <CategoryLayout>{page}</CategoryLayout>
+Page.getLayout = (page) => <CategoryTopLayout>{page}</CategoryTopLayout>
 
 export default Page
