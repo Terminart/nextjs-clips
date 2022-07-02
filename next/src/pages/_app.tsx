@@ -1,13 +1,24 @@
 import type { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/provider'
 import customTheme from '@/theme/customTheme'
-import { Header } from '@/components/templates/Header'
+import type { ReactElement, ReactNode } from 'react'
+import type { NextPage } from 'next'
+import { DefaultLayout } from '@/components/layouts/DefaultLayout'
 
-function MyApp({ Component, pageProps }: AppProps) {
+export type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout =
+    Component.getLayout ?? ((page) => <DefaultLayout>{page}</DefaultLayout>)
+
   return (
     <ChakraProvider theme={customTheme}>
-      <Header />
-      <Component {...pageProps} />
+      {getLayout(<Component {...pageProps} />)}
     </ChakraProvider>
   )
 }
