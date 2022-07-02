@@ -30,14 +30,13 @@ export const Header = () => {
   const router = useRouter()
 
   return (
-    <Box bg={'inherit'}>
+    <Box bg={'inherit'} as={'header'}>
       <Flex
         w={'full'}
         h={`${HEIGHT}px`}
         align={'center'}
         justify={'space-between'}
         px={7}
-        as={'header'}
         boxShadow={useColorModeValue('base', 'palegreen.500.blur')}
         pos={'relative'}
         zIndex={'sticky'}

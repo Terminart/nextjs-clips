@@ -1,6 +1,8 @@
-import type { GetServerSideProps, NextPage } from 'next'
+import type { GetServerSideProps } from 'next'
 import { GalleryTab, GalleryTabProps } from '@/components/organisms/GalleryTab'
 import _ from 'lodash'
+import { NextPageWithLayout } from '@/pages/_app'
+import { CategoryDetailLayout } from '@/components/layouts/CategoryDetailLayout'
 
 const sampleData: GalleryTabProps = {
   tabs: [
@@ -9,12 +11,12 @@ const sampleData: GalleryTabProps = {
       group: undefined,
     },
     {
-      title: 'Even',
-      group: 'even',
-    },
-    {
       title: 'Odd',
       group: 'odd',
+    },
+    {
+      title: 'Even',
+      group: 'even',
     },
   ],
   cards: [...Array(10)].map((v, i) => ({
@@ -29,7 +31,7 @@ type Props = {
   remainder?: number
 }
 
-const Page: NextPage<Props> = ({ remainder }: Props) => {
+const Page: NextPageWithLayout = ({ remainder }: Props) => {
   const cards = _.chain(sampleData.cards)
     .pickBy((v) => _.isNil(remainder) || v.number % 2 === remainder)
     .toArray()
@@ -37,6 +39,7 @@ const Page: NextPage<Props> = ({ remainder }: Props) => {
 
   return <GalleryTab tabs={sampleData.tabs} cards={cards} />
 }
+Page.getLayout = (page) => <CategoryDetailLayout>{page}</CategoryDetailLayout>
 
 export const getServerSideProps: GetServerSideProps<Props> = async (
   context
@@ -44,7 +47,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
   return {
     props: context.query?.group
       ? {
-          remainder: context.query.group === 'even' ? 1 : 0,
+          remainder: context.query.group === 'odd' ? 1 : 0,
         }
       : {},
   }

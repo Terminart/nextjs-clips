@@ -28,8 +28,6 @@ export const GalleryTab = ({ tabs, cards }: GalleryTabProps) => {
       border={'2px solid'}
       borderColor={useColorModeValue('gray.500', 'purple.500')}
       borderRadius={'lg'}
-      mx={{ base: 4, md: 20 }}
-      my={8}
     >
       <Tabs
         isFitted

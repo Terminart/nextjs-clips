@@ -12,8 +12,6 @@ export const CategoryTop = ({ links }: Props) => {
       spacingX={20}
       spacingY={{ base: 10, sm: 20 }}
       minChildWidth={'300px'}
-      my={{ base: 8, sm: 16 }}
-      mx={{ base: 8, sm: 20 }}
     >
       {links.map((props, i) => (
         <SquareLink key={i} {...props} />
