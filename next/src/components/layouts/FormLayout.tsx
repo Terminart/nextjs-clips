@@ -8,7 +8,7 @@ type Props = {
 
 export const FormLayout = ({ children }: Props) => {
   return (
-    <DefaultLayout mx={'auto'} my={20}>
+    <DefaultLayout>
       <Box
         w={{ base: 300, md: 680 }}
         border={'2px solid'}
