@@ -1,20 +1,15 @@
 import { DateCard, DateCardProps } from '@/components/molecules/DateCard'
 import { Wrap } from '@chakra-ui/react'
-import addDays from 'date-fns/addDays'
 import { GroupDivider } from '@/components/atoms/GroupDivider'
 import _ from 'lodash'
 import format from 'date-fns/format'
 
-const sampleData: DateCardProps[] = [...Array(20)].map<DateCardProps>(
-  (v, i) => ({
-    title: `day${i + 1}`,
-    text: `day${i + 1}`,
-    date: addDays(new Date(2022, 0, 1), i * 5),
-  })
-)
+type Props = {
+  cards: DateCardProps[]
+}
 
-export const GroupedDate = () => {
-  const grouped = _.chain(sampleData)
+export const GroupedDate = ({ cards }: Props) => {
+  const grouped = _.chain(cards)
     .groupBy((v) => {
       const { date } = v
       return format(date, 'yyyy/MM')
