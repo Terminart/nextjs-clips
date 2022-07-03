@@ -9,6 +9,11 @@ const links = toNestedLinks('/gallery', [
     image: '/gallery-tab.jpg',
     title: 'Tab',
   },
+  {
+    href: '/group',
+    image: '/gallery-tab.jpg',
+    title: 'Group',
+  },
 ])
 
 const Page: NextPageWithLayout = () => {
