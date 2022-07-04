@@ -19,6 +19,11 @@ const links = toNestedLinks('/gallery', [
     image: '/gallery-tab.jpg',
     title: 'Carousel',
   },
+  {
+    href: '/step',
+    image: '/gallery-tab.jpg',
+    title: 'Step',
+  },
 ])
 
 const Page: NextPageWithLayout = () => {
