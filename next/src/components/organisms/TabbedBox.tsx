@@ -13,17 +13,17 @@ type Props = {
 
 export const TabbedBox = ({ tabs, children }: PropsWithChildren<Props>) => {
   const router = useRouter()
+  const colors = {
+    nonSelectedText: useColorModeValue('gray.500', ''),
+    selectedText: useColorModeValue('black', 'palegreen.500'),
+    border: useColorModeValue('gray.500', 'palegreen.700'),
+  }
 
   return (
-    <Box
-      border={'2px solid'}
-      borderColor={useColorModeValue('gray.500', 'purple.500')}
-      borderRadius={'lg'}
-    >
+    <Box border={'2px solid'} borderColor={colors.border} borderRadius={'lg'}>
       <Tabs
         isFitted
         variant={'line'}
-        colorScheme={useColorModeValue('blue', 'purple')}
         onChange={(index) => {
           router
             .push({
@@ -37,7 +37,17 @@ export const TabbedBox = ({ tabs, children }: PropsWithChildren<Props>) => {
       >
         <TabList>
           {tabs.map((v, i) => (
-            <Tab key={i}>{v.title}</Tab>
+            <Tab
+              key={i}
+              color={colors.nonSelectedText}
+              _selected={{
+                color: colors.selectedText,
+                borderColor: colors.border,
+                _focus: { boxShadow: 'none' },
+              }}
+            >
+              {v.title}
+            </Tab>
           ))}
         </TabList>
       </Tabs>
