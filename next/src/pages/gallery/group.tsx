@@ -1,8 +1,8 @@
 import { NextPageWithLayout } from '@/pages/_app'
 import { CategoryDetailLayout } from '@/components/layouts/CategoryDetailLayout'
-import { GroupedDate } from '@/components/organisms/GroupedDate'
 import { DateCardProps } from '@/components/molecules/DateCard'
 import addDays from 'date-fns/addDays'
+import { GalleryGroup } from '@/components/templates/GalleryGroup'
 
 const sampleData: DateCardProps[] = [...Array(20)].map<DateCardProps>(
   (v, i) => ({
@@ -13,7 +13,7 @@ const sampleData: DateCardProps[] = [...Array(20)].map<DateCardProps>(
 )
 
 const Page: NextPageWithLayout = () => {
-  return <GroupedDate cards={sampleData} />
+  return <GalleryGroup cards={sampleData} />
 }
 Page.getLayout = (page) => <CategoryDetailLayout>{page}</CategoryDetailLayout>
 

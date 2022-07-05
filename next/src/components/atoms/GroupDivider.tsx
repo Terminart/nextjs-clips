@@ -6,10 +6,10 @@ interface Props {
 }
 
 export const GroupDivider = ({ title }: Props) => {
-  const color = useColorModeValue('gray.400', 'purple.700')
+  const color = useColorModeValue('gray.400', 'palegreen.700')
 
   return (
-    <HStack spacing={0} mt={10} mb={5} ml={{ base: 0, md: -10 }}>
+    <HStack spacing={0} mt={10} mb={5}>
       <Box
         bg={color}
         borderRadius={'12px'}
