@@ -22,10 +22,10 @@ export const NumberedCard = ({
   badges,
 }: NumberedCardProps) => {
   const colors = {
-    border: useColorModeValue('gray.300', 'purple.700'),
-    left: useColorModeValue('gray.200', 'purple.500'),
+    border: useColorModeValue('gray.300', 'palegreen.700'),
+    left: useColorModeValue('gray.200', 'palegreen.700'),
     right: useColorModeValue('white', 'gray.600'),
-    badge: useColorModeValue('gray', 'purple'),
+    badge: useColorModeValue('gray', 'teal'),
   }
 
   return (

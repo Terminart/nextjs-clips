@@ -19,13 +19,13 @@ export const DateCard = ({ title, text, date }: DateCardProps) => {
       w={{ base: '280px' }}
       h={'150px'}
       border={'2px solid'}
-      borderColor={useColorModeValue('gray.300', 'purple.700')}
+      borderColor={useColorModeValue('gray.300', 'palegreen.700')}
       borderRadius={'lg'}
       overflow={'hidden'}
       spacing={0}
     >
       <VStack
-        bg={useColorModeValue('white', 'gray.600')}
+        bg={useColorModeValue('white', 'blue.900')}
         w={'full'}
         h={'full'}
         align={'baseline'}

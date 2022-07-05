@@ -4,11 +4,11 @@ import { GroupDivider } from '@/components/atoms/GroupDivider'
 import _ from 'lodash'
 import format from 'date-fns/format'
 
-type Props = {
+export type GroupedDateCardsProps = {
   cards: DateCardProps[]
 }
 
-export const GroupedDate = ({ cards }: Props) => {
+export const GroupedDateCards = ({ cards }: GroupedDateCardsProps) => {
   const grouped = _.chain(cards)
     .groupBy((v) => {
       const { date } = v
@@ -28,6 +28,7 @@ export const GroupedDate = ({ cards }: Props) => {
             <Wrap
               spacing={{ base: 4, sm: 8 }}
               justify={{ base: 'center', sm: 'start' }}
+              px={10}
             >
               {group.values.map((v, i) => (
                 <DateCard {...v} key={i} />
