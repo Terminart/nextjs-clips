@@ -1,43 +1,22 @@
 import type { GetServerSideProps } from 'next'
-import { GalleryTab, GalleryTabProps } from '@/components/templates/GalleryTab'
+import { GalleryTab } from '@/components/templates/GalleryTab'
 import _ from 'lodash'
 import { NextPageWithLayout } from '@/pages/_app'
 import { CategoryDetailLayout } from '@/components/layouts/CategoryDetailLayout'
-
-const sampleData: GalleryTabProps = {
-  tabs: [
-    {
-      title: 'All',
-      group: undefined,
-    },
-    {
-      title: 'Odd',
-      group: 'odd',
-    },
-    {
-      title: 'Even',
-      group: 'even',
-    },
-  ],
-  cards: [...Array(10)].map((v, i) => ({
-    number: i + 1,
-    title: `Card ${i + 1}`,
-    text: 'test '.repeat(i).trimEnd(),
-    badges: Array.from({ length: i }, (v, i) => `b${i}`),
-  })),
-}
+import { genTabSample } from '@/lib/sampleData'
 
 type Props = {
   remainder?: number
 }
 
 const Page: NextPageWithLayout = ({ remainder }: Props) => {
-  const cards = _.chain(sampleData.cards)
+  const sample = genTabSample()
+  const cards = _.chain(sample.cards)
     .pickBy((v) => _.isNil(remainder) || v.number % 2 === remainder)
     .toArray()
     .value()
 
-  return <GalleryTab tabs={sampleData.tabs} cards={cards} />
+  return <GalleryTab tabs={sample.tabs} cards={cards} />
 }
 Page.getLayout = (page) => <CategoryDetailLayout>{page}</CategoryDetailLayout>
 

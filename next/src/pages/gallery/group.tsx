@@ -1,19 +1,11 @@
 import { NextPageWithLayout } from '@/pages/_app'
 import { CategoryDetailLayout } from '@/components/layouts/CategoryDetailLayout'
-import { DateCardProps } from '@/components/molecules/DateCard'
-import addDays from 'date-fns/addDays'
 import { GalleryGroup } from '@/components/templates/GalleryGroup'
-
-const sampleData: DateCardProps[] = [...Array(20)].map<DateCardProps>(
-  (v, i) => ({
-    title: `day${i + 1}`,
-    text: `day${i + 1}`,
-    date: addDays(new Date(2022, 0, 1), i * 5),
-  })
-)
+import { genGroupSample } from '@/lib/sampleData'
 
 const Page: NextPageWithLayout = () => {
-  return <GalleryGroup cards={sampleData} />
+  const sample = genGroupSample()
+  return <GalleryGroup cards={sample} />
 }
 Page.getLayout = (page) => <CategoryDetailLayout>{page}</CategoryDetailLayout>
 
