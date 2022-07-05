@@ -26,11 +26,11 @@ const slickStyles = (colorMode: ColorMode): CSSObject => ({
   },
 })
 
-type Props = {
+export type CarouselProps = {
   slides: ImageCardProps[]
 }
 
-export const Carousel = ({ slides }: Props) => {
+export const Carousel = ({ slides }: CarouselProps) => {
   const { colorMode } = useColorMode()
 
   return (

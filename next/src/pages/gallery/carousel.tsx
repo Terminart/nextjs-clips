@@ -1,7 +1,7 @@
 import { NextPageWithLayout } from '@/pages/_app'
 import { CategoryDetailLayout } from '@/components/layouts/CategoryDetailLayout'
-import { Carousel } from '@/components/organisms/Carousel'
 import { ImageCardProps } from '@/components/molecules/ImageCard'
+import { GalleryCarousel } from '@/components/templates/GalleryCarousel'
 
 const mapImage = ['/balloons.jpg', '/beach.jpg', '/boat.jpg', '/road.jpg']
 const sampleData = [...Array(10)].map<ImageCardProps>((v, i) => ({
@@ -11,7 +11,7 @@ const sampleData = [...Array(10)].map<ImageCardProps>((v, i) => ({
 }))
 
 const Page: NextPageWithLayout = () => {
-  return <Carousel slides={sampleData} />
+  return <GalleryCarousel slides={sampleData} />
 }
 Page.getLayout = (page) => <CategoryDetailLayout>{page}</CategoryDetailLayout>
 
