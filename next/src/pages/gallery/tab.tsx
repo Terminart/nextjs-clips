@@ -1,5 +1,5 @@
 import type { GetServerSideProps } from 'next'
-import { GalleryTab, GalleryTabProps } from '@/components/organisms/GalleryTab'
+import { GalleryTab, GalleryTabProps } from '@/components/templates/GalleryTab'
 import _ from 'lodash'
 import { NextPageWithLayout } from '@/pages/_app'
 import { CategoryDetailLayout } from '@/components/layouts/CategoryDetailLayout'

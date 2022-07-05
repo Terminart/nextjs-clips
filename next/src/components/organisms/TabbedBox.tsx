@@ -1,26 +1,17 @@
-import {
-  NumberedCard,
-  NumberedCardProps,
-} from '@/components/molecules/NumberedCard'
-import {
-  Box,
-  SimpleGrid,
-  Tab,
-  TabList,
-  Tabs,
-  useColorModeValue,
-} from '@chakra-ui/react'
+import { Box, Tab, TabList, Tabs, useColorModeValue } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
+import { PropsWithChildren } from 'react'
 
-export type GalleryTabProps = {
-  tabs: {
-    title: string
-    group?: string
-  }[]
-  cards: NumberedCardProps[]
+export type TabProps = {
+  title: string
+  group?: string
 }
 
-export const GalleryTab = ({ tabs, cards }: GalleryTabProps) => {
+type Props = {
+  tabs: TabProps[]
+}
+
+export const TabbedBox = ({ tabs, children }: PropsWithChildren<Props>) => {
   const router = useRouter()
 
   return (
@@ -50,17 +41,7 @@ export const GalleryTab = ({ tabs, cards }: GalleryTabProps) => {
           ))}
         </TabList>
       </Tabs>
-      <SimpleGrid
-        spacingX={8}
-        spacingY={12}
-        columns={{ base: 1, lg: 2, xl: 3 }}
-        justifyItems={'center'}
-        p={8}
-      >
-        {cards.map((v) => (
-          <NumberedCard {...v} key={v.number} />
-        ))}
-      </SimpleGrid>
+      {children}
     </Box>
   )
 }
