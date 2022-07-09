@@ -4,8 +4,8 @@ import {
   Box,
   Button,
   Divider,
+  Flex,
   Grid,
-  HStack,
   Text,
   useColorModeValue,
   VStack,
@@ -26,7 +26,7 @@ const Page: NextPageWithLayout = () => {
       <PageTitle title={'Wizard: Last page'} />
       <VStack
         align={'baseline'}
-        spacing={8}
+        spacing={6}
         divider={<Divider borderColor={'gray.400'} />}
       >
         <Text fontSize={20}>
@@ -52,7 +52,11 @@ const Page: NextPageWithLayout = () => {
           </Grid>
         </Text>
 
-        <HStack justify={'space-between'} w={'full'}>
+        <Flex
+          w={'full'}
+          direction={{ base: 'column', sm: 'row' }}
+          justify={'space-between'}
+        >
           <Link href={'/integration/wizard/fourth'} passHref>
             <Button>Back</Button>
           </Link>
@@ -62,10 +66,11 @@ const Page: NextPageWithLayout = () => {
               reset()
               await Router.push('/integration')
             }}
+            mt={{ base: 8, sm: 0 }}
           >
             Submit
           </Button>
-        </HStack>
+        </Flex>
       </VStack>
     </Box>
   )
