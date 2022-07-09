@@ -4,6 +4,7 @@ import customTheme from '@/theme/customTheme'
 import type { ReactElement, ReactNode } from 'react'
 import type { NextPage } from 'next'
 import { DefaultLayout } from '@/components/layouts/DefaultLayout'
+import { RecoilRoot } from 'recoil'
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -17,9 +18,11 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     Component.getLayout ?? ((page) => <DefaultLayout>{page}</DefaultLayout>)
 
   return (
-    <ChakraProvider theme={customTheme}>
-      {getLayout(<Component {...pageProps} />)}
-    </ChakraProvider>
+    <RecoilRoot>
+      <ChakraProvider theme={customTheme}>
+        {getLayout(<Component {...pageProps} />)}
+      </ChakraProvider>
+    </RecoilRoot>
   )
 }
 
