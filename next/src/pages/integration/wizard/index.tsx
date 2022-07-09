@@ -1,6 +1,6 @@
 import { NextPageWithLayout } from '@/pages/_app'
 import { CategoryDetailLayout } from '@/components/layouts/CategoryDetailLayout'
-import { Box, Button, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import { PageTitle } from '@/components/atoms/PageTitle'
 
@@ -9,14 +9,14 @@ const Page: NextPageWithLayout = () => {
     <Box>
       <PageTitle title={'Wizard'} />
       <Text fontSize={20} mb={10}>
-        <Text>このページはRecoilを使ってみようというものです。</Text>
-        <Text>
-          試しにウィザード画面を作成してRecoilで状態を保存するようにしています。
-        </Text>
+        <Text>Recoilお試し実装</Text>
+        <Text>異なるページの入力情報をRecoilを用いて保持します。</Text>
       </Text>
-      <Link href={'/integration/wizard/second'} passHref>
-        <Button>Next</Button>
-      </Link>
+      <Flex justify={'end'}>
+        <Link href={'/integration/wizard/second'} passHref>
+          <Button>Next</Button>
+        </Link>
+      </Flex>
     </Box>
   )
 }
