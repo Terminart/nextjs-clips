@@ -23,7 +23,14 @@ const Page: NextPageWithLayout = () => {
         <Text>全ての入力が完了しました。</Text>
         <Text>保存を押して今までの入力内容が保存できます。</Text>
       </Text>
-      <Button onClick={reset}>Submit</Button>
+      <Button
+        onClick={() => {
+          alert(JSON.stringify(wizObj))
+          reset()
+        }}
+      >
+        Submit
+      </Button>
     </Box>
   )
 }
