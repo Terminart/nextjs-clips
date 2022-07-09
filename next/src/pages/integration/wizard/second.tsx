@@ -1,18 +1,20 @@
 import { NextPageWithLayout } from '@/pages/_app'
 import { CategoryDetailLayout } from '@/components/layouts/CategoryDetailLayout'
-import {
-  Box,
-  Button,
-  FormControl,
-  FormErrorMessage,
-  VStack,
-} from '@chakra-ui/react'
+import { Box, Button, VStack } from '@chakra-ui/react'
 import { PageTitle } from '@/components/atoms/PageTitle'
-import { FormInput2 } from '@/components/molecules/FormInput'
 import { useSetRecoilState } from 'recoil'
 import { wizAtom } from '@/states/atoms/wizard'
 import { Form, Formik } from 'formik'
 import Router from 'next/router'
+import { object, SchemaOf, string } from 'yup'
+import { FormInputTemp } from '@/components/molecules/FormInputTemp'
+
+const initialValues = {
+  secondInput: '',
+}
+const schema: SchemaOf<typeof initialValues> = object({
+  secondInput: string().max(3).required(),
+})
 
 const Page: NextPageWithLayout = () => {
   const setWizObj = useSetRecoilState(wizAtom)
@@ -21,11 +23,12 @@ const Page: NextPageWithLayout = () => {
     <Box>
       <PageTitle title={'Wizard by Recoil: Second page'} />
       <Formik
-        initialValues={{ secondInput: '' }}
+        initialValues={initialValues}
         onSubmit={async (values) => {
           setWizObj((prev) => ({ ...prev, second: values.secondInput }))
           await Router.push('/integration/wizard/third')
         }}
+        validationSchema={schema}
       >
         {({ errors, touched, isValid, dirty, isSubmitting }) => (
           <Form>
@@ -35,13 +38,12 @@ const Page: NextPageWithLayout = () => {
               px={4}
               py={{ base: 6, md: 8 }}
             >
-              <FormControl
-                isInvalid={!!errors.secondInput && touched.secondInput}
-                isRequired
-              >
-                <FormInput2 id={'secondInput'} label={'Sample'} />
-                <FormErrorMessage>{errors.secondInput}</FormErrorMessage>
-              </FormControl>
+              <FormInputTemp
+                error={errors.secondInput}
+                touched={touched.secondInput}
+                id={'secondInput'}
+                label={'Sample2'}
+              />
 
               <Button
                 type={'submit'}
