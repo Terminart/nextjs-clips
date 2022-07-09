@@ -12,14 +12,14 @@ import {
 } from '@chakra-ui/react'
 import { PageTitle } from '@/components/atoms/PageTitle'
 import { useRecoilValue, useResetRecoilState } from 'recoil'
-import { wizAtom } from '@/states/atoms/wizard'
+import { wizardInputsAtom } from '@/states/atoms/wizard'
 import Router from 'next/router'
 import Link from 'next/link'
 
 const Page: NextPageWithLayout = () => {
   const color = useColorModeValue('red', 'yellow')
-  const wizObj = useRecoilValue(wizAtom)
-  const reset = useResetRecoilState(wizAtom)
+  const wizObj = useRecoilValue(wizardInputsAtom)
+  const reset = useResetRecoilState(wizardInputsAtom)
 
   return (
     <Box>

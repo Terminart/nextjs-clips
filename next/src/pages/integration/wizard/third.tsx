@@ -3,7 +3,7 @@ import { CategoryDetailLayout } from '@/components/layouts/CategoryDetailLayout'
 import { Box } from '@chakra-ui/react'
 import { PageTitle } from '@/components/atoms/PageTitle'
 import { useSetRecoilState } from 'recoil'
-import { wizAtom } from '@/states/atoms/wizard'
+import { wizardInputsAtom } from '@/states/atoms/wizard'
 import { FormInputTemp } from '@/components/molecules/FormInputTemp'
 import { object, SchemaOf, string } from 'yup'
 import { WizardForm } from '@/components/organisms/WizardForm'
@@ -16,7 +16,7 @@ const schema: SchemaOf<typeof initialValues> = object({
 })
 
 const Page: NextPageWithLayout = () => {
-  const setWizObj = useSetRecoilState(wizAtom)
+  const setWizObj = useSetRecoilState(wizardInputsAtom)
 
   return (
     <Box>
