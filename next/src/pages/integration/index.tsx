@@ -5,7 +5,7 @@ import { toNestedLinks } from '@/lib/path'
 
 const links = toNestedLinks('/integration', [
   {
-    href: '/wizard/first',
+    href: '/wizard',
     image: '/gallery-tab.jpg',
     title: 'Wizard',
   },
