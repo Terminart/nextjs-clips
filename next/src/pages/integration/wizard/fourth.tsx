@@ -1,7 +1,7 @@
 import { NextPageWithLayout } from '@/pages/_app'
 import { CategoryDetailLayout } from '@/components/layouts/CategoryDetailLayout'
 import { useRecoilState } from 'recoil'
-import { wizardInputsAtom } from '@/states/atoms/wizard'
+import { wizardInputAtom } from '@/states/atoms/wizard'
 import { object, string } from 'yup'
 import { WizardFourth } from '@/components/templates/WizardFourth'
 
@@ -10,10 +10,10 @@ const schema = object({
 })
 
 const Page: NextPageWithLayout = () => {
-  const [wizObj, setWizObj] = useRecoilState(wizardInputsAtom)
+  const [wizardInput, setWizardInput] = useRecoilState(wizardInputAtom)
 
   const initialValues = {
-    country: wizObj.country || '',
+    country: wizardInput.country || '',
   }
 
   return (
@@ -21,7 +21,7 @@ const Page: NextPageWithLayout = () => {
       initialValues={initialValues}
       validationSchema={schema}
       onSubmit={(values) => {
-        setWizObj((prev) => ({ ...prev, country: values.country }))
+        setWizardInput((prev) => ({ ...prev, country: values.country }))
       }}
     />
   )

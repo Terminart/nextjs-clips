@@ -3,7 +3,7 @@ import Router from 'next/router'
 import _ from 'lodash'
 import { WizardInput } from '@/types/wizardInput'
 
-export const wizardInputsAtom = atom<WizardInput>({
+export const wizardInputAtom = atom<WizardInput>({
   key: 'WizardInputs',
   default: {
     name: '',
