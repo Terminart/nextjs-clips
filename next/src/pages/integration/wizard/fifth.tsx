@@ -16,6 +16,7 @@ import { wizardInputsAtom } from '@/states/atoms/wizard'
 import Router from 'next/router'
 import Link from 'next/link'
 import _ from 'lodash'
+import { Fragment } from 'react'
 
 const Page: NextPageWithLayout = () => {
   const color = useColorModeValue('red', 'yellow')
@@ -45,10 +46,10 @@ const Page: NextPageWithLayout = () => {
             mt={2}
           >
             {Object.entries(wizObj).map(([k, v]) => (
-              <>
+              <Fragment key={k}>
                 <Text>{_.capitalize(k)}:</Text>
                 <Text color={color}>{v}</Text>
-              </>
+              </Fragment>
             ))}
           </Grid>
         </Text>
