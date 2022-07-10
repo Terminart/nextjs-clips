@@ -2,21 +2,22 @@ import { NextPageWithLayout } from '@/pages/_app'
 import { CategoryDetailLayout } from '@/components/layouts/CategoryDetailLayout'
 import { Box } from '@chakra-ui/react'
 import { PageTitle } from '@/components/atoms/PageTitle'
-import { useSetRecoilState } from 'recoil'
+import { useRecoilState } from 'recoil'
 import { wizardInputsAtom } from '@/states/atoms/wizard'
 import { FormInputTemp } from '@/components/molecules/FormInputTemp'
 import { object, string } from 'yup'
 import { WizardForm } from '@/components/organisms/WizardForm'
 
-const initialValues = {
-  country: '',
-}
 const schema = object({
   country: string().max(50),
 })
 
 const Page: NextPageWithLayout = () => {
-  const setWizObj = useSetRecoilState(wizardInputsAtom)
+  const [wizObj, setWizObj] = useRecoilState(wizardInputsAtom)
+
+  const initialValues = {
+    country: wizObj.country || '',
+  }
 
   return (
     <Box>
