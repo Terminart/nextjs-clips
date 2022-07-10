@@ -1,16 +1,16 @@
 import { atom } from 'recoil'
 
-type WizardInputs = {
-  second: string
-  third: string
-  fourth: string
+export type WizardInputs = {
+  name: string
+  age: number
+  country?: string
 }
 
 export const wizardInputsAtom = atom<WizardInputs>({
   key: 'WizardInputs',
   default: {
-    second: '',
-    third: '',
-    fourth: '',
+    name: '',
+    age: 0,
+    country: undefined,
   },
 })

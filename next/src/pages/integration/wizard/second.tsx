@@ -4,15 +4,15 @@ import { Box } from '@chakra-ui/react'
 import { PageTitle } from '@/components/atoms/PageTitle'
 import { useSetRecoilState } from 'recoil'
 import { wizardInputsAtom } from '@/states/atoms/wizard'
-import { object, SchemaOf, string } from 'yup'
+import { object, string } from 'yup'
 import { FormInputTemp } from '@/components/molecules/FormInputTemp'
 import { WizardForm } from '@/components/organisms/WizardForm'
 
 const initialValues = {
-  secondInput: '',
+  name: '',
 }
-const schema: SchemaOf<typeof initialValues> = object({
-  secondInput: string().max(3).required(),
+const schema = object({
+  name: string().max(16).required(),
 })
 
 const Page: NextPageWithLayout = () => {
@@ -25,17 +25,18 @@ const Page: NextPageWithLayout = () => {
         initialValues={initialValues}
         validationSchema={schema}
         onSubmit={(values) => {
-          setWizObj((prev) => ({ ...prev, second: values.secondInput }))
+          setWizObj((prev) => ({ ...prev, name: values.name }))
         }}
         back={'/integration/wizard'}
         next={'/integration/wizard/third'}
       >
         {({ errors, touched }) => (
           <FormInputTemp
-            error={errors.secondInput}
-            touched={touched.secondInput}
-            id={'secondInput'}
-            label={'Sample2'}
+            error={errors.name}
+            touched={touched.name}
+            id={'name'}
+            label={'Name'}
+            isRequired
           />
         )}
       </WizardForm>

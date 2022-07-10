@@ -5,14 +5,18 @@ import { PageTitle } from '@/components/atoms/PageTitle'
 import { useSetRecoilState } from 'recoil'
 import { wizardInputsAtom } from '@/states/atoms/wizard'
 import { FormInputTemp } from '@/components/molecules/FormInputTemp'
-import { object, SchemaOf, string } from 'yup'
+import { number, object } from 'yup'
 import { WizardForm } from '@/components/organisms/WizardForm'
 
 const initialValues = {
-  thirdInput: '',
+  age: '',
 }
-const schema: SchemaOf<typeof initialValues> = object({
-  thirdInput: string().max(3).required(),
+const schema = object({
+  age: number()
+    .typeError('field must be digits only')
+    .required()
+    .positive()
+    .max(100),
 })
 
 const Page: NextPageWithLayout = () => {
@@ -25,17 +29,18 @@ const Page: NextPageWithLayout = () => {
         initialValues={initialValues}
         validationSchema={schema}
         onSubmit={(values) => {
-          setWizObj((prev) => ({ ...prev, third: values.thirdInput }))
+          setWizObj((prev) => ({ ...prev, age: Number(values.age) }))
         }}
         back={'/integration/wizard/second'}
         next={'/integration/wizard/fourth'}
       >
         {({ errors, touched }) => (
           <FormInputTemp
-            error={errors.thirdInput}
-            touched={touched.thirdInput}
-            id={'thirdInput'}
-            label={'Sample2'}
+            error={errors.age}
+            touched={touched.age}
+            id={'age'}
+            label={'Age'}
+            isRequired
           />
         )}
       </WizardForm>

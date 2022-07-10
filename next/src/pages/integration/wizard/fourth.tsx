@@ -5,14 +5,14 @@ import { PageTitle } from '@/components/atoms/PageTitle'
 import { useSetRecoilState } from 'recoil'
 import { wizardInputsAtom } from '@/states/atoms/wizard'
 import { FormInputTemp } from '@/components/molecules/FormInputTemp'
-import { object, SchemaOf, string } from 'yup'
+import { object, string } from 'yup'
 import { WizardForm } from '@/components/organisms/WizardForm'
 
 const initialValues = {
-  fourthInput: '',
+  country: '',
 }
-const schema: SchemaOf<typeof initialValues> = object({
-  fourthInput: string().max(3).required(),
+const schema = object({
+  country: string().max(50),
 })
 
 const Page: NextPageWithLayout = () => {
@@ -25,17 +25,17 @@ const Page: NextPageWithLayout = () => {
         initialValues={initialValues}
         validationSchema={schema}
         onSubmit={(values) => {
-          setWizObj((prev) => ({ ...prev, fourth: values.fourthInput }))
+          setWizObj((prev) => ({ ...prev, country: values.country }))
         }}
         back={'/integration/wizard/third'}
         next={'/integration/wizard/fifth'}
       >
         {({ errors, touched }) => (
           <FormInputTemp
-            error={errors.fourthInput}
-            touched={touched.fourthInput}
-            id={'fourthInput'}
-            label={'Sample2'}
+            error={errors.country}
+            touched={touched.country}
+            id={'country'}
+            label={'Country'}
           />
         )}
       </WizardForm>

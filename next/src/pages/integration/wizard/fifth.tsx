@@ -15,6 +15,7 @@ import { useRecoilValue, useResetRecoilState } from 'recoil'
 import { wizardInputsAtom } from '@/states/atoms/wizard'
 import Router from 'next/router'
 import Link from 'next/link'
+import _ from 'lodash'
 
 const Page: NextPageWithLayout = () => {
   const color = useColorModeValue('red', 'yellow')
@@ -45,7 +46,7 @@ const Page: NextPageWithLayout = () => {
           >
             {Object.entries(wizObj).map(([k, v]) => (
               <>
-                <Text>{k}:</Text>
+                <Text>{_.capitalize(k)}:</Text>
                 <Text color={color}>{v}</Text>
               </>
             ))}
