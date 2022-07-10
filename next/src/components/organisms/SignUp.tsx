@@ -1,6 +1,6 @@
 import { Button, Center, Heading, VStack } from '@chakra-ui/react'
 import { Form, Formik } from 'formik'
-import { FormInputTemp } from '@/components/molecules/FormInputTemp'
+import { FormInput } from '@/components/molecules/FormInput'
 
 export const SignUp = () => {
   return (
@@ -14,13 +14,9 @@ export const SignUp = () => {
       >
         <Form>
           <VStack align={'baseline'} spacing={8} px={4} py={{ base: 6, md: 8 }}>
-            <FormInputTemp id={'name'} label={'Name'} />
-            <FormInputTemp
-              id={'password'}
-              label={'Password'}
-              type={'password'}
-            />
-            <FormInputTemp
+            <FormInput id={'name'} label={'Name'} />
+            <FormInput id={'password'} label={'Password'} type={'password'} />
+            <FormInput
               id={'confirmPassword'}
               label={'Confirm Password'}
               type={'password'}

@@ -15,7 +15,7 @@ type Props = {
   isRequired?: boolean
 }
 
-export const FormInputTemp = ({
+export const FormInput = ({
   id,
   label,
   type,

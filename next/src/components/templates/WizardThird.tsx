@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react'
 import { PageTitle } from '@/components/atoms/PageTitle'
 import { WizardForm } from '@/components/organisms/WizardForm'
-import { FormInputTemp } from '@/components/molecules/FormInputTemp'
+import { FormInput } from '@/components/molecules/FormInput'
 import { FormikConfig } from 'formik/dist/types'
 
 type Props = Pick<
@@ -27,7 +27,7 @@ export const WizardThird = ({
         next={'/integration/wizard/fourth'}
       >
         {({ errors, touched }) => (
-          <FormInputTemp
+          <FormInput
             error={errors.age}
             touched={touched.age}
             id={'age'}
