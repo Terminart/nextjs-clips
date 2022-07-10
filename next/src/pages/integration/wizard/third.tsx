@@ -1,12 +1,9 @@
 import { NextPageWithLayout } from '@/pages/_app'
 import { CategoryDetailLayout } from '@/components/layouts/CategoryDetailLayout'
-import { Box } from '@chakra-ui/react'
-import { PageTitle } from '@/components/atoms/PageTitle'
 import { useRecoilState } from 'recoil'
 import { wizardInputsAtom } from '@/states/atoms/wizard'
-import { FormInputTemp } from '@/components/molecules/FormInputTemp'
 import { number, object } from 'yup'
-import { WizardForm } from '@/components/organisms/WizardForm'
+import { WizardThird } from '@/components/templates/WizardThird'
 
 const schema = object({
   age: number()
@@ -20,32 +17,17 @@ const Page: NextPageWithLayout = () => {
   const [wizObj, setWizObj] = useRecoilState(wizardInputsAtom)
 
   const initialValues = {
-    age: wizObj.age || '',
+    age: wizObj.age > 0 ? wizObj.age.toString() : '',
   }
 
   return (
-    <Box>
-      <PageTitle title={'Wizard: Third page'} />
-      <WizardForm
-        initialValues={initialValues}
-        validationSchema={schema}
-        onSubmit={(values) => {
-          setWizObj((prev) => ({ ...prev, age: Number(values.age) }))
-        }}
-        back={'/integration/wizard/second'}
-        next={'/integration/wizard/fourth'}
-      >
-        {({ errors, touched }) => (
-          <FormInputTemp
-            error={errors.age}
-            touched={touched.age}
-            id={'age'}
-            label={'Age'}
-            isRequired
-          />
-        )}
-      </WizardForm>
-    </Box>
+    <WizardThird
+      initialValues={initialValues}
+      validationSchema={schema}
+      onSubmit={(values) => {
+        setWizObj((prev) => ({ ...prev, age: Number(values.age) }))
+      }}
+    />
   )
 }
 Page.getLayout = (page) => <CategoryDetailLayout>{page}</CategoryDetailLayout>

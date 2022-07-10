@@ -1,12 +1,9 @@
 import { NextPageWithLayout } from '@/pages/_app'
 import { CategoryDetailLayout } from '@/components/layouts/CategoryDetailLayout'
-import { Box } from '@chakra-ui/react'
-import { PageTitle } from '@/components/atoms/PageTitle'
 import { useRecoilState } from 'recoil'
 import { wizardInputsAtom } from '@/states/atoms/wizard'
-import { FormInputTemp } from '@/components/molecules/FormInputTemp'
 import { object, string } from 'yup'
-import { WizardForm } from '@/components/organisms/WizardForm'
+import { WizardFourth } from '@/components/templates/WizardFourth'
 
 const schema = object({
   country: string().max(50),
@@ -20,27 +17,13 @@ const Page: NextPageWithLayout = () => {
   }
 
   return (
-    <Box>
-      <PageTitle title={'Wizard: Fourth page'} />
-      <WizardForm
-        initialValues={initialValues}
-        validationSchema={schema}
-        onSubmit={(values) => {
-          setWizObj((prev) => ({ ...prev, country: values.country }))
-        }}
-        back={'/integration/wizard/third'}
-        next={'/integration/wizard/fifth'}
-      >
-        {({ errors, touched }) => (
-          <FormInputTemp
-            error={errors.country}
-            touched={touched.country}
-            id={'country'}
-            label={'Country'}
-          />
-        )}
-      </WizardForm>
-    </Box>
+    <WizardFourth
+      initialValues={initialValues}
+      validationSchema={schema}
+      onSubmit={(values) => {
+        setWizObj((prev) => ({ ...prev, country: values.country }))
+      }}
+    />
   )
 }
 Page.getLayout = (page) => <CategoryDetailLayout>{page}</CategoryDetailLayout>

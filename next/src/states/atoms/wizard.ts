@@ -1,14 +1,9 @@
 import { atom } from 'recoil'
 import Router from 'next/router'
 import _ from 'lodash'
+import { WizardInput } from '@/types/wizardInput'
 
-export type WizardInputs = {
-  name: string
-  age: number
-  country?: string
-}
-
-export const wizardInputsAtom = atom<WizardInputs>({
+export const wizardInputsAtom = atom<WizardInput>({
   key: 'WizardInputs',
   default: {
     name: '',
