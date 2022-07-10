@@ -44,7 +44,7 @@ export const WizardForm = <T,>({
               justify={'space-between'}
             >
               <Link href={back} passHref>
-                <Button>Back</Button>
+                <Button variant={'negative'}>Back</Button>
               </Link>
               <Button
                 type={'submit'}

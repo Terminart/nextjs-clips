@@ -59,7 +59,7 @@ export const WizardFifth = ({ values, onSubmit }: Props) => {
           justify={'space-between'}
         >
           <Link href={'/integration/wizard/fourth'} passHref>
-            <Button>Back</Button>
+            <Button variant={'negative'}>Back</Button>
           </Link>
           <Button onClick={onSubmit} mt={{ base: 8, sm: 0 }}>
             Submit
