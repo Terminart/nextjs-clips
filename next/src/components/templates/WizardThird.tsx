@@ -3,6 +3,7 @@ import { PageTitle } from '@/components/atoms/PageTitle'
 import { WizardForm } from '@/components/organisms/WizardForm'
 import { FormInput } from '@/components/molecules/FormInput'
 import { FormikConfig } from 'formik/dist/types'
+import { path } from '@/types/path'
 
 type Props = Pick<
   FormikConfig<{
@@ -23,8 +24,8 @@ export const WizardThird = ({
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}
-        back={'/integration/wizard/second'}
-        next={'/integration/wizard/fourth'}
+        back={path.integration.wizard.second}
+        next={path.integration.wizard.fourth}
       >
         {({ errors, touched }) => (
           <FormInput

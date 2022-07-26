@@ -13,6 +13,7 @@ import { Fragment } from 'react'
 import _ from 'lodash'
 import Link from 'next/link'
 import { WizardInput } from '@/types/wizardInput'
+import { path } from '@/types/path'
 
 type Props = {
   values: WizardInput
@@ -58,7 +59,7 @@ export const WizardFifth = ({ values, onSubmit }: Props) => {
           direction={{ base: 'column', sm: 'row' }}
           justify={'space-between'}
         >
-          <Link href={'/integration/wizard/fourth'} passHref>
+          <Link href={path.integration.wizard.fourth} passHref>
             <Button variant={'negative'}>Back</Button>
           </Link>
           <Button onClick={onSubmit} mt={{ base: 8, sm: 0 }}>

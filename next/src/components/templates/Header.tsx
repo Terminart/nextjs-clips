@@ -22,6 +22,7 @@ import Link from 'next/link'
 import { categoryLinks, isPathInCategory } from '@/lib/path'
 import { useRouter } from 'next/router'
 import _ from 'lodash'
+import { path } from '@/types/path'
 
 const HEIGHT = 60
 const links: TextLinksProps['links'] = _.chain(categoryLinks)
@@ -50,7 +51,7 @@ export const Header = () => {
         zIndex={'sticky'}
         bg={'inherit'}
       >
-        <Link href={'/'} passHref>
+        <Link href={path.home} passHref>
           <Text as={'a'} textStyle={'headerLogo'}>
             Terminart
           </Text>

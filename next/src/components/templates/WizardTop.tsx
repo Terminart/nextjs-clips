@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Text } from '@chakra-ui/react'
 import { PageTitle } from '@/components/atoms/PageTitle'
 import Link from 'next/link'
+import { path } from '@/types/path'
 
 export const WizardTop = () => {
   return (
@@ -11,7 +12,7 @@ export const WizardTop = () => {
         <Text>異なるページの入力情報をRecoilを用いて保持します。</Text>
       </Text>
       <Flex justify={'end'}>
-        <Link href={'/integration/wizard/second'} passHref>
+        <Link href={path.integration.wizard.second} passHref>
           <Button>Next</Button>
         </Link>
       </Flex>
