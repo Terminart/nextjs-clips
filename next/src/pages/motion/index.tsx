@@ -2,15 +2,16 @@ import { CategoryTop } from '@/components/templates/CategoryTop'
 import { NextPageWithLayout } from '@/pages/_app'
 import { CategoryTopLayout } from '@/components/layouts/CategoryTopLayout'
 import { motion } from 'framer-motion'
-import { toNestedLinks } from '@/lib/path'
+import { LinkWithImageProps } from '@/types/link'
+import { path } from '@/types/path'
 
-const links = toNestedLinks('/motion', [
+const links: LinkWithImageProps[] = [
   {
-    href: '/parallax',
+    href: path.motion.parallax,
     image: '/gallery-tab.jpg',
     title: 'Parallax Scroll',
   },
-])
+]
 
 const Page: NextPageWithLayout = () => {
   return (

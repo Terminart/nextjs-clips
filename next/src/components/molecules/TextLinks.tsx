@@ -1,13 +1,16 @@
 import { Stack, StackProps } from '@chakra-ui/react'
 import { TextLink } from '@/components/atoms/TextLink'
-import { LinkWithImageProps } from '@/types/link'
+import { Path } from '@/types/path'
 
-type Props = StackProps & {
-  links: LinkWithImageProps[]
-  isSelected?: (link: LinkWithImageProps) => boolean
+export type TextLinksProps = StackProps & {
+  links: {
+    href: Path
+    title: string
+  }[]
+  isSelected?: (link: TextLinksProps['links'][number]) => boolean
 }
 
-export function TextLinks({ links, isSelected, ...props }: Props) {
+export function TextLinks({ links, isSelected, ...props }: TextLinksProps) {
   return (
     <Stack textStyle={'categoryLink'} {...props}>
       {links.map((v, i) => (

@@ -5,8 +5,14 @@ import {
   useColorModeValue,
   useOutsideClick,
 } from '@chakra-ui/react'
-import { TextLinks } from '@/components/molecules/TextLinks'
-import { menuLinks } from '@/lib/path'
+import { TextLinks, TextLinksProps } from '@/components/molecules/TextLinks'
+import _ from 'lodash'
+import { categoryLinks } from '@/lib/path'
+
+const links: TextLinksProps['links'] = _.map(categoryLinks, (v) => ({
+  href: v.href,
+  title: v.title,
+}))
 
 type Props = {
   isOpen: boolean
@@ -35,7 +41,7 @@ export const HeaderMenu = ({ isOpen, onClose, paddingTop }: Props) => {
         shadow={'inner'}
         opacity={0.9}
       >
-        <TextLinks links={menuLinks} spacing={5} />
+        <TextLinks links={links} spacing={5} />
       </Box>
     </Slide>
   )

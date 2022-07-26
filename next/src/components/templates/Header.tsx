@@ -17,12 +17,20 @@ import {
 } from '@chakra-ui/icons'
 import { IconButton } from '@/components/atoms/IconButton'
 import { HeaderMenu } from '@/components/organisms/HeaderMenu'
-import { TextLinks } from '@/components/molecules/TextLinks'
+import { TextLinks, TextLinksProps } from '@/components/molecules/TextLinks'
 import Link from 'next/link'
-import { headerLinks, isHrefInCategory } from '@/lib/path'
+import { categoryLinks, isPathInCategory } from '@/lib/path'
 import { useRouter } from 'next/router'
+import _ from 'lodash'
 
 const HEIGHT = 60
+const links: TextLinksProps['links'] = _.chain(categoryLinks)
+  .pick(['home', 'gallery', 'motion', 'integration'])
+  .map((v) => ({
+    href: v.href,
+    title: v.title,
+  }))
+  .value()
 
 export const Header = () => {
   const { toggleColorMode } = useColorMode()
@@ -49,10 +57,10 @@ export const Header = () => {
         </Link>
         <Show above={'md'}>
           <TextLinks
-            links={headerLinks}
+            links={links}
             direction={'row'}
             spacing={8}
-            isSelected={(link) => isHrefInCategory(link.href, router)}
+            isSelected={(link) => isPathInCategory(link.href, router)}
           />
         </Show>
         <HStack spacing={5}>
