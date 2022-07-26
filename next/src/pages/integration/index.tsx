@@ -1,15 +1,16 @@
 import { CategoryTop } from '@/components/templates/CategoryTop'
 import { NextPageWithLayout } from '@/pages/_app'
 import { CategoryTopLayout } from '@/components/layouts/CategoryTopLayout'
-import { toNestedLinks } from '@/lib/path'
+import { LinkWithImageProps } from '@/types/link'
+import { path } from '@/types/path'
 
-const links = toNestedLinks('/integration', [
+const links: LinkWithImageProps[] = [
   {
-    href: '/wizard',
+    href: path.integration.wizard.index,
     image: '/gallery-tab.jpg',
     title: 'Wizard',
   },
-])
+]
 
 const Page: NextPageWithLayout = () => {
   return <CategoryTop links={links} />

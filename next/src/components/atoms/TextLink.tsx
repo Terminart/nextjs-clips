@@ -1,17 +1,14 @@
-import { PropsWithChildren } from 'react'
 import Link from 'next/link'
 import { Text, useColorModeValue } from '@chakra-ui/react'
+import { Path } from '@/types/path'
 
 type Props = {
-  href: string
+  href: Path
   isSelected?: boolean
+  children: string
 }
 
-export const TextLink = ({
-  href,
-  isSelected,
-  children,
-}: PropsWithChildren<Props>) => {
+export const TextLink = ({ href, isSelected, children }: Props) => {
   const selectedStyles = useColorModeValue(
     { textDecorationLine: 'underline' },
     { color: 'palegreen.500' }

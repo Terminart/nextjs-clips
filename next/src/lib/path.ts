@@ -1,63 +1,40 @@
 import { LinkWithImageProps } from '@/types/link'
 import { NextRouter } from 'next/router'
-import _ from 'lodash'
+import { Subdirectory, path, Path } from '@/types/path'
 
-type Categories =
-  | 'home'
-  | 'gallery'
-  | 'motion'
-  | 'integration'
-  | 'login'
-  | 'signup'
-export const links: Record<Categories, LinkWithImageProps> = {
+export const categoryLinks: Record<Subdirectory, LinkWithImageProps> = {
   home: {
-    href: '/',
+    href: path.home,
     title: 'Top',
     image: '',
   },
   gallery: {
-    href: '/gallery',
+    href: path.gallery.index,
     title: 'Gallery',
     image: '/gallery.jpg',
   },
   motion: {
-    href: '/motion',
+    href: path.motion.index,
     title: 'Motion',
     image: '/motion.jpg',
   },
   integration: {
-    href: '/integration',
+    href: path.integration.index,
     title: 'Integration',
     image: '/integration.jpg',
   },
   login: {
-    href: '/login',
+    href: path.login,
     title: 'Login',
     image: '',
   },
   signup: {
-    href: '/signup',
+    href: path.signup,
     title: 'SignUp',
     image: '',
   },
 }
 
-export const headerLinks = _.chain(links)
-  .pick(['home', 'gallery', 'motion', 'integration'])
-  .values()
-  .value()
-export const menuLinks = _.chain(links).values().value()
-
-export function isHrefInCategory(href: string, router: NextRouter) {
-  return href === router.pathname.split(/(?=\/)/g)[0]
-}
-
-export function toNestedLinks(
-  parentPath: string,
-  links: LinkWithImageProps[]
-): LinkWithImageProps[] {
-  return links.map((v) => ({
-    ...v,
-    href: `${parentPath}${v.href}`,
-  }))
+export function isPathInCategory(path: Path, router: NextRouter) {
+  return path === router.pathname.split(/(?=\/)/g)[0]
 }

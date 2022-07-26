@@ -5,11 +5,12 @@ import Link from 'next/link'
 import * as React from 'react'
 import { ReactNode } from 'react'
 import { FormikConfig, FormikProps } from 'formik/dist/types'
+import { Path } from '@/types/path'
 
 type Props<T> = FormikConfig<T> & {
   children: (props: FormikProps<T>) => ReactNode
-  back: string
-  next: string
+  back: Path
+  next: Path
 }
 
 export const WizardForm = <T,>({

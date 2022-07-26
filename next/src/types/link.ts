@@ -1,5 +1,7 @@
+import { Path } from '@/types/path'
+
 export type LinkProps = {
-  href: string
+  href: Path
   title: string
 }
 
