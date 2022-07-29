@@ -1,27 +1,80 @@
-import { Box, forwardRef } from '@chakra-ui/react'
+import { Box, forwardRef, IconButton } from '@chakra-ui/react'
 import Image from 'next/image'
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
+import { useState } from 'react'
+import { AnimatePresence, motion, Variants } from 'framer-motion'
 
-type Props = {
-  images: unknown[]
+const animation: Variants = {
+  initial: (direction: number) => {
+    return {
+      x: direction > 0 ? '100%' : '-100%',
+      opacity: 0,
+    }
+  },
+  animate: {
+    x: '0%',
+    opacity: 1,
+  },
+  exit: (direction: number) => {
+    return {
+      x: direction < 0 ? '100%' : '-100%',
+      opacity: 0,
+    }
+  },
 }
 
-export const HorizontalSlide = forwardRef(({ images }: Props, ref) => {
-  // const [[page, direction], setPage] = useState([0, 0])
-  //
-  // const paginate = (newDirection: number) => {
-  //   const newPage = Math.abs((page + newDirection) % images.length)
-  //   setPage([newPage, newDirection])
-  // }
-  console.log(images.length, ref)
+type Props = {
+  images: string[]
+}
+
+export const HorizontalSlide = forwardRef(({ images }: Props) => {
+  const [[page, direction], setPage] = useState([0, 0])
+
+  const paginate = (newDirection: number) => {
+    const newPage = Math.abs((page + newDirection) % images.length)
+    setPage([newPage, newDirection])
+  }
 
   return (
-    <Box w={'full'} h={'full'} pos={'relative'}>
-      <Image
-        src={'/night-tree.jpg'}
-        layout={'fill'}
-        objectFit={'cover'}
-        alt={'test'}
+    <>
+      <IconButton
+        variant={'circleFloat'}
+        icon={<ChevronLeftIcon />}
+        aria-label={'prev'}
+        left={10}
+        onClick={() => paginate(-1)}
       />
-    </Box>
+      <IconButton
+        variant={'circleFloat'}
+        icon={<ChevronRightIcon />}
+        aria-label={'next'}
+        right={10}
+        onClick={() => paginate(1)}
+      />
+      <Box w={'full'} h={'full'} pos={'relative'} overflow={'hidden'}>
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.div
+            style={{ width: '100%', height: '100%', position: 'absolute' }}
+            variants={animation}
+            key={page}
+            custom={direction}
+            initial={'initial'}
+            animate={'animate'}
+            exit={'exit'}
+            transition={{
+              type: 'tween',
+              duration: 1,
+            }}
+          >
+            <Image
+              src={images[page]}
+              layout={'fill'}
+              objectFit={'cover'}
+              alt={'test'}
+            />
+          </motion.div>
+        </AnimatePresence>
+      </Box>
+    </>
   )
 })
