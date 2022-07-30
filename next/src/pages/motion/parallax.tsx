@@ -1,8 +1,8 @@
 import { NextPageWithLayout } from '@/pages/_app'
-import { ParallaxScroll } from '@/components/templates/ParallaxScroll'
+import { MotionParallaxScroll } from '@/components/templates/MotionParallaxScroll'
 
 const Page: NextPageWithLayout = () => {
-  return <ParallaxScroll />
+  return <MotionParallaxScroll />
 }
 
 export default Page

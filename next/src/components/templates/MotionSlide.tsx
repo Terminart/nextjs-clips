@@ -1,11 +1,11 @@
-import { HorizontalSlide } from '@/components/organisms/HorizontalSlide'
-import { VerticalSlide } from '@/components/organisms/VerticalSlide'
+import { SlideHorizontal } from '@/components/organisms/SlideHorizontal'
+import { SlideVertical } from '@/components/organisms/SlideVertical'
 
 export const MotionSlide = () => {
   return (
-    <VerticalSlide>
-      <HorizontalSlide images={['/night-tree.jpg', '/universe-splash.jpg']} />
-      <HorizontalSlide images={['/ocean.jpg', '/sky.jpg']} />
-    </VerticalSlide>
+    <SlideVertical>
+      <SlideHorizontal images={['/night-tree.jpg', '/universe-splash.jpg']} />
+      <SlideHorizontal images={['/ocean.jpg', '/sky.jpg']} />
+    </SlideVertical>
   )
 }
