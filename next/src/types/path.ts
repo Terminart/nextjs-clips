@@ -12,6 +12,7 @@ export const path = {
   motion: {
     index: '/motion',
     parallax: '/motion/parallax',
+    slide: '/motion/slide',
   },
   integration: {
     index: '/integration',

@@ -30,6 +30,15 @@ export const Button: ComponentStyleConfig = {
         bg: mode(`gray.300`, `teal.900`)(props),
       },
     }),
+    circleFloat: (props) => ({
+      bg: mode('gray.200', 'teal.500')(props),
+      borderRadius: 'full',
+      boxSize: 10,
+      minW: 'unset',
+      position: 'absolute',
+      top: '50%',
+      zIndex: 'docked',
+    }),
   },
   sizes: {
     xl: {

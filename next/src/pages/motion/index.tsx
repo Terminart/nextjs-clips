@@ -11,6 +11,11 @@ const links: LinkWithImageProps[] = [
     image: '/gallery-tab.jpg',
     title: 'Parallax Scroll',
   },
+  {
+    href: path.motion.slide,
+    image: '/gallery-tab.jpg',
+    title: 'Slide',
+  },
 ]
 
 const Page: NextPageWithLayout = () => {
