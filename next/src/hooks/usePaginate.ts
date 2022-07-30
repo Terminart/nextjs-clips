@@ -2,14 +2,14 @@ import { useState, WheelEvent, KeyboardEvent } from 'react'
 import { useThrottle } from '@/hooks/useThrottle'
 import { PanInfo } from 'framer-motion'
 
-export const usePaginate = (length: number) => {
+export const usePaginate = (numOfPages: number) => {
   const [{ page, direction }, setPage] = useState({ page: 0, direction: 0 })
 
   const paginate = (dir: number) => {
     if (dir === 0) return
 
     setPage((prev) => ({
-      page: Math.abs((prev.page + dir) % length),
+      page: Math.abs((prev.page + dir) % numOfPages),
       direction: dir,
     }))
   }
