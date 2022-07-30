@@ -9,7 +9,7 @@ import { motion, useTransform, useViewportScroll } from 'framer-motion'
 import Image from 'next/image'
 import { DummyText } from '@/components/molecules/DummyText'
 
-export const ParallaxScroll = () => {
+export const MotionParallaxScroll = () => {
   const { scrollY } = useViewportScroll()
   const parallaxY = useTransform(scrollY, [0, 100], [0, -80], { clamp: false })
 

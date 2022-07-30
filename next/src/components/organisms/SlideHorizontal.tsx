@@ -28,7 +28,7 @@ type Props = {
   images: string[]
 }
 
-export const HorizontalSlide = ({ images }: Props) => {
+export const SlideHorizontal = ({ images }: Props) => {
   const { page, direction, paginate } = usePaginate(images.length)
 
   return (

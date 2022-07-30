@@ -21,7 +21,7 @@ const scrollAnimation: Variants = {
   },
 }
 
-export const VerticalSlide = ({ children }: { children: ReactNode }) => {
+export const SlideVertical = ({ children }: { children: ReactNode }) => {
   const components = Children.toArray(children)
   const { page, direction, onWheel, onPanStart, onKeyDown } = usePaginate(
     components.length
