@@ -5,3 +5,5 @@ export type RecursiveValueOf<T extends object> = {
     ? RecursiveValueOf<T[K]>
     : T[K]
 }[keyof T]
+
+export type Callback<T extends unknown[]> = (...args: T) => void
