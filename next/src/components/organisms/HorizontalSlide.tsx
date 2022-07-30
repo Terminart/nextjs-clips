@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 import { useState } from 'react'
 import { AnimatePresence, motion, Variants } from 'framer-motion'
+import { useThrottle } from '@/hooks/useThrottle'
 
 const animation: Variants = {
   initial: (direction: number) => {
@@ -28,11 +29,13 @@ type Props = {
 }
 
 export const HorizontalSlide = forwardRef(({ images }: Props) => {
-  const [[page, direction], setPage] = useState([0, 0])
+  const [{ page, direction }, setPage] = useState({ page: 0, direction: 0 })
 
-  const paginate = (newDirection: number) => {
-    const newPage = Math.abs((page + newDirection) % images.length)
-    setPage([newPage, newDirection])
+  const paginate = (direction: number) => {
+    setPage((prev) => ({
+      page: Math.abs((prev.page + direction) % images.length),
+      direction,
+    }))
   }
 
   return (
@@ -42,14 +45,14 @@ export const HorizontalSlide = forwardRef(({ images }: Props) => {
         icon={<ChevronLeftIcon />}
         aria-label={'prev'}
         left={10}
-        onClick={() => paginate(-1)}
+        onClick={useThrottle(() => paginate(-1), 1500)}
       />
       <IconButton
         variant={'circleFloat'}
         icon={<ChevronRightIcon />}
         aria-label={'next'}
         right={10}
-        onClick={() => paginate(1)}
+        onClick={useThrottle(() => paginate(1), 1500)}
       />
       <Box w={'full'} h={'full'} pos={'relative'} overflow={'hidden'}>
         <AnimatePresence initial={false} custom={direction}>
