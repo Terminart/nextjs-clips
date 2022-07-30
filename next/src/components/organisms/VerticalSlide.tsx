@@ -1,6 +1,6 @@
-import { Children, ReactNode, useState } from 'react'
+import { Children, ReactNode } from 'react'
 import { AnimatePresence, motion, Variants } from 'framer-motion'
-import { useThrottle } from '@/hooks/useThrottle'
+import { usePaginate } from '@/hooks/usePaginate'
 
 const scrollAnimation: Variants = {
   initial: (direction: number) => {
@@ -22,17 +22,10 @@ const scrollAnimation: Variants = {
 }
 
 export const VerticalSlide = ({ children }: { children: ReactNode }) => {
-  const [{ page, direction }, setPage] = useState({ page: 0, direction: 0 })
   const components = Children.toArray(children)
-
-  const paginate = (dir: number) => {
-    if (dir === 0) return
-
-    setPage((prev) => ({
-      page: Math.abs((prev.page + dir) % components.length),
-      direction: dir,
-    }))
-  }
+  const { page, direction, onWheel, onPanStart, onKeyDown } = usePaginate(
+    components.length
+  )
 
   return (
     <motion.div
@@ -41,24 +34,9 @@ export const VerticalSlide = ({ children }: { children: ReactNode }) => {
         overflow: 'hidden',
         position: 'relative',
       }}
-      onWheel={useThrottle((e) => {
-        paginate(Math.sign(e.deltaY))
-      })}
-      onPanStart={useThrottle((e, info) => {
-        paginate(Math.sign(info.delta.y) * -1)
-      })}
-      onKeyDown={useThrottle((e) => {
-        switch (e.keyCode) {
-          case 38: // 上キー
-            paginate(-1)
-            break
-          case 40: // 下キー
-            paginate(1)
-            break
-          default:
-            return
-        }
-      })}
+      onWheel={onWheel}
+      onPanStart={onPanStart}
+      onKeyDown={onKeyDown}
     >
       <AnimatePresence custom={direction}>
         <motion.div

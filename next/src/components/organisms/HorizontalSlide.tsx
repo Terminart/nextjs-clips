@@ -1,9 +1,9 @@
 import { Box, forwardRef, IconButton } from '@chakra-ui/react'
 import Image from 'next/image'
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
-import { useState } from 'react'
 import { AnimatePresence, motion, Variants } from 'framer-motion'
 import { useThrottle } from '@/hooks/useThrottle'
+import { usePaginate } from '@/hooks/usePaginate'
 
 const animation: Variants = {
   initial: (direction: number) => {
@@ -29,14 +29,7 @@ type Props = {
 }
 
 export const HorizontalSlide = forwardRef(({ images }: Props) => {
-  const [{ page, direction }, setPage] = useState({ page: 0, direction: 0 })
-
-  const paginate = (direction: number) => {
-    setPage((prev) => ({
-      page: Math.abs((prev.page + direction) % images.length),
-      direction,
-    }))
-  }
+  const { page, direction, paginate } = usePaginate(images.length)
 
   return (
     <>
