@@ -1,4 +1,4 @@
-import { Box, forwardRef, IconButton } from '@chakra-ui/react'
+import { Box, IconButton } from '@chakra-ui/react'
 import Image from 'next/image'
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 import { AnimatePresence, motion, Variants } from 'framer-motion'
@@ -28,7 +28,7 @@ type Props = {
   images: string[]
 }
 
-export const HorizontalSlide = forwardRef(({ images }: Props) => {
+export const HorizontalSlide = ({ images }: Props) => {
   const { page, direction, paginate } = usePaginate(images.length)
 
   return (
@@ -73,4 +73,4 @@ export const HorizontalSlide = forwardRef(({ images }: Props) => {
       </Box>
     </>
   )
-})
+}
