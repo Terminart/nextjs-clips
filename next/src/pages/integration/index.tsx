@@ -5,6 +5,7 @@ import { LinkWithImageProps } from '@/types/link'
 import { path } from '@/types/path'
 import { useEffect } from 'react'
 import { doc, getDoc, getFirestore } from '@firebase/firestore'
+import { getFunctions, httpsCallable } from '@firebase/functions'
 
 const links: LinkWithImageProps[] = [
   {
@@ -24,6 +25,12 @@ const Page: NextPageWithLayout = () => {
         doc(db, 'sample-test-mon', 'test-doc')
       ).then((doc) => doc.data())
       console.dir(snapshot)
+    })()
+
+    void (async () => {
+      const result = await httpsCallable(getFunctions(), 'helloWorld')()
+      console.log('result is ... ')
+      console.log(result)
     })()
   })
 

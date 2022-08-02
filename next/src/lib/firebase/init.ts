@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { connectFirestoreEmulator, getFirestore } from '@firebase/firestore'
+import { connectFunctionsEmulator, getFunctions } from '@firebase/functions'
 
 initializeApp({
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -16,5 +17,12 @@ if (process.env.NODE_ENV === 'development') {
     firestore,
     'localhost',
     Number(process.env.NEXT_PUBLIC_FIREBASE_FIRESTORE_EMULATOR_PORT)
+  )
+
+  const functions = getFunctions()
+  connectFunctionsEmulator(
+    functions,
+    'localhost',
+    Number(process.env.NEXT_PUBLIC_FIREBASE_FUNCTIONS_EMULATOR_PORT)
   )
 }
