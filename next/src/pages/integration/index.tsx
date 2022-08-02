@@ -21,14 +21,14 @@ const Page: NextPageWithLayout = () => {
     void (async () => {
       console.log('test')
       const db = getFirestore()
-      const snapshot = await getDoc(
-        doc(db, 'sample-test-mon', 'test-doc')
-      ).then((doc) => doc.data())
+      const snapshot = await getDoc(doc(db, 'news', 'test-doc')).then((doc) =>
+        doc.data()
+      )
       console.dir(snapshot)
     })()
 
     void (async () => {
-      const result = await httpsCallable(getFunctions(), 'helloWorld')()
+      const result = await httpsCallable(getFunctions(), 'hello-world')()
       console.log('result is ... ')
       console.log(result)
     })()
