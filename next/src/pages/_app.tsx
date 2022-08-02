@@ -7,6 +7,8 @@ import { DefaultLayout } from '@/components/layouts/DefaultLayout'
 import { RecoilRoot } from 'recoil'
 import { AnimatePresence } from 'framer-motion'
 
+import '@/lib/firebase/init'
+
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode
 }
