@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app'
+import { connectFirestoreEmulator, getFirestore } from '@firebase/firestore'
 
 initializeApp({
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -8,3 +9,12 @@ initializeApp({
   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
   storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
 })
+
+if (process.env.NODE_ENV === 'development') {
+  const firestore = getFirestore()
+  connectFirestoreEmulator(
+    firestore,
+    'localhost',
+    Number(process.env.NEXT_PUBLIC_FIREBASE_FIRESTORE_EMULATOR_PORT)
+  )
+}

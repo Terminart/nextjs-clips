@@ -20,9 +20,9 @@ const Page: NextPageWithLayout = () => {
     void (async () => {
       console.log('test')
       const db = getFirestore()
-      const snapshot = await getDoc(doc(db, 'sample-test-mon', '1')).then(
-        (doc) => doc.data()
-      )
+      const snapshot = await getDoc(
+        doc(db, 'sample-test-mon', 'test-doc')
+      ).then((doc) => doc.data())
       console.dir(snapshot)
     })()
   })
