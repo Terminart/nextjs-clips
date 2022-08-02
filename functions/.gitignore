@@ -5,5 +5,8 @@ lib/**/*.js.map
 # Firebase config
 .firebaserc
 
+# Firebase cache
+.firebase/
+
 # Node.js dependency directory
 ../node_modules/
