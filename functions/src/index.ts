@@ -1,1 +1,1 @@
-export * from './api/hello'
+export * as hello from './api/hello'

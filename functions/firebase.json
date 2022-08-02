@@ -5,7 +5,22 @@
   },
   "functions": {
     "source": ".",
-    "predeploy": "npm --prefix \"$RESOURCE_DIR\" run build"
+    "predeploy": "npm --prefix \"$RESOURCE_DIR\" run build",
+    "ignore": [
+      "**/node_modules/**",
+      ".env.sample",
+      ".eslintrc.yml",
+      ".gitignore",
+      ".firebase/**",
+      ".firebaserc",
+      "firebase.json",
+      "tsconfig.json",
+      ".vscode",
+      "**/*.log",
+      "firestore.rules",
+      "firestore.indexes.json",
+      "src"
+    ]
   },
   "emulators": {
     "auth": {
