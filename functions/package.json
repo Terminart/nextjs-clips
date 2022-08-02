@@ -7,7 +7,8 @@
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions:api",
     "logs": "firebase functions:log",
-    "emulators": "firebase emulators:start"
+    "emulators": "firebase emulators:start",
+    "lint": "eslint --ext .js,.ts ."
   },
   "engines": {
     "node": "16"
@@ -18,6 +19,9 @@
     "firebase-functions": "^3.22.0"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "eslint": "8.16.0",
     "typescript": "4.7.2",
     "firebase-functions-test": "^2.2.0"
   },
