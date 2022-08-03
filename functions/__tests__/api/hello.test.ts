@@ -1,12 +1,11 @@
-// import test = require('firebase-functions-test')
+import test = require('firebase-functions-test')
+import { api } from '../../src/index'
 
-// TODO: cloud functionsのテストを実行できるようにする
-// const t = test({
-//   projectId: process.env.FIREBASE_PROJECT_ID,
-// })
+const wrap = test().wrap
 
 describe('test', () => {
-  it('should be success', function () {
-    expect('1').toBe('1')
+  it('should be success', async function () {
+    const result = await wrap(api.hello.world)(null)
+    expect(result).toBe('hello world.')
   })
 })
