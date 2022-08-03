@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "test": "npm test --prefix next",
+    "test:next": "npm test --prefix next",
+    "test:functions": "npm test --prefix functions",
     "prepare": "husky install",
     "gen:theme-typings": "npm run gen:theme-typings --prefix next"
   },
