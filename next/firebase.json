@@ -1,0 +1,35 @@
+{
+  "functions": {
+    "source": ".",
+    "ignore": [
+      "**/.firebase/**",
+      ".firebaserc",
+      "firebase.json",
+      "**/node_modules/**",
+      "**/.next/cache/**",
+      "README.md",
+      "**/src/**",
+      "**/public/**",
+      "**/__tests__/**",
+      "jest.config.js",
+      "jest.setup.js",
+      "tsconfig.json",
+      "next-env.d.ts",
+      ".env.sample",
+      ".eslintrc.yml",
+      ".gitignore",
+      ".env"
+    ],
+    "predeploy": "npm --prefix \"$RESOURCE_DIR\" run build"
+  },
+  "hosting": {
+    "public": "public",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "nextjsHandler"
+      }
+    ]
+  }
+}

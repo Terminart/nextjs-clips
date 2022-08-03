@@ -1,0 +1,39 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": {
+    "source": ".",
+    "predeploy": "npm --prefix \"$RESOURCE_DIR\" run build",
+    "ignore": [
+      "**/node_modules/**",
+      ".env.sample",
+      ".eslintrc.yml",
+      ".gitignore",
+      ".firebase/**",
+      ".firebaserc",
+      "firebase.json",
+      "tsconfig.json",
+      ".vscode",
+      "**/*.log",
+      "firestore.rules",
+      "firestore.indexes.json",
+      "src"
+    ]
+  },
+  "emulators": {
+    "auth": {
+      "port": 9099
+    },
+    "functions": {
+      "port": 5001
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "ui": {
+      "enabled": true
+    }
+  }
+}
