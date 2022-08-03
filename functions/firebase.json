@@ -8,6 +8,7 @@
     "predeploy": "npm --prefix \"$RESOURCE_DIR\" run build",
     "ignore": [
       "**/node_modules/**",
+      ".env.local",
       ".env.sample",
       ".eslintrc.yml",
       ".gitignore",
@@ -19,7 +20,9 @@
       "**/*.log",
       "firestore.rules",
       "firestore.indexes.json",
-      "src"
+      "src",
+      "jest.config.js",
+      "__tests__"
     ]
   },
   "emulators": {
