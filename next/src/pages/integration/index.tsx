@@ -13,6 +13,11 @@ const links: LinkWithImageProps[] = [
     image: '/gallery-tab.jpg',
     title: 'Wizard',
   },
+  {
+    href: path.integration.news.index,
+    image: '/gallery-tab.jpg',
+    title: 'News',
+  },
 ]
 
 const Page: NextPageWithLayout = () => {
