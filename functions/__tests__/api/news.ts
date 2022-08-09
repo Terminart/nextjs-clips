@@ -1,7 +1,10 @@
+import 'dotenv/config'
 import test = require('firebase-functions-test')
 import { api } from '../../src/index'
 
-const wrap = test().wrap
+const wrap = test({
+  projectId: process.env.FIREBASE_PROJECT_ID,
+}).wrap
 
 describe('test', () => {
   it('should be success', async function () {
