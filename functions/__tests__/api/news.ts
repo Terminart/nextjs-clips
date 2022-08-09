@@ -1,10 +1,6 @@
 import 'dotenv/config'
 import { api } from '../../src/index'
-import test = require('firebase-functions-test')
-
-const wrap = test({
-  projectId: process.env.FIREBASE_PROJECT_ID,
-}).wrap
+import { wrap } from '../helper'
 
 describe('api.news', () => {
   it('should be created without error', async function () {
