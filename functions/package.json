@@ -12,7 +12,7 @@
     "logs": "firebase functions:log",
     "emulators": "firebase emulators:start",
     "lint": "eslint --ext .js,.ts .",
-    "test": "jest"
+    "test": "jest --detectOpenHandles"
   },
   "engines": {
     "node": "16"
