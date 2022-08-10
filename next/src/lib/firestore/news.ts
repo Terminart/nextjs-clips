@@ -8,6 +8,10 @@ import {
   SnapshotOptions,
   Timestamp,
   WithFieldValue,
+  query,
+  orderBy,
+  limit,
+  startAfter,
 } from '@firebase/firestore'
 
 export type News = {
@@ -40,8 +44,18 @@ const converter: FirestoreDataConverter<News> = {
   },
 }
 
-export const getAllNews = async (): Promise<News[]> => {
-  return getDocs(collection(getFirestore(), 'news').withConverter(converter))
+export const getAllNews = async (
+  after = Timestamp.now(),
+  rows = 10
+): Promise<News[]> => {
+  return getDocs(
+    query(
+      collection(getFirestore(), 'news').withConverter(converter),
+      orderBy('createdAt', 'desc'),
+      limit(rows),
+      startAfter(after)
+    )
+  )
     .then((snapshots) => {
       return snapshots.docs.map((v) => v.data())
     })
