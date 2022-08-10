@@ -13,14 +13,8 @@ import {
   limit,
   startAfter,
 } from '@firebase/firestore'
-
-export type News = {
-  id: string
-  title: string
-  text: string
-  createdAt: Timestamp
-  updatedAt: Timestamp
-}
+import { News } from '@/types/news'
+import { FIRESTORE_COLLECTIONS } from '@/constants/collection'
 
 const converter: FirestoreDataConverter<News> = {
   toFirestore(modelObject: WithFieldValue<News>): DocumentData {
@@ -48,7 +42,9 @@ export const getAllNews = async (
 ): Promise<News[]> => {
   return getDocs(
     query(
-      collection(getFirestore(), 'news').withConverter(converter),
+      collection(getFirestore(), FIRESTORE_COLLECTIONS.NEWS).withConverter(
+        converter
+      ),
       orderBy('createdAt', 'desc'),
       limit(rows),
       startAfter(after)

@@ -2,8 +2,9 @@ import { NextPageWithLayout } from '@/pages/_app'
 import { CategoryDetailLayout } from '@/components/layouts/CategoryDetailLayout'
 import { IntegrationNews } from '@/components/templates/IntegrationNews'
 import { GetServerSideProps } from 'next'
-import { getAllNews, News } from '@/lib/firestore/news'
+import { getAllNews } from '@/lib/firestore/news'
 import { deserialize, serialize } from '@/lib/serialize'
+import { News } from '@/types/news'
 
 type Props = {
   news: News[]
