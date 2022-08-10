@@ -8,7 +8,6 @@ describe('api.news', () => {
       wrap(api.news.create)({
         title: 'title',
         text: 'text',
-        tag: ['tag a', 'tag b'],
       })
     ).resolves.not.toThrowError()
   })
@@ -18,7 +17,6 @@ describe('api.news', () => {
       wrap(api.news.create)({
         title: undefined,
         text: 'text',
-        tag: ['tag a', 'tag b'],
       })
     ).rejects.toThrowError()
   })

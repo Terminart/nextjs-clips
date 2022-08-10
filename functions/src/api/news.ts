@@ -8,11 +8,10 @@ type News = {
   id: string
   title: string
   text: string
-  tag: string[]
   createdAt: Timestamp
   updatedAt: Timestamp
 }
-type NewsRequest = Pick<News, 'title' | 'tag' | 'text'>
+type NewsRequest = Pick<News, 'title' | 'text'>
 
 export const create = functions.https.onCall(async (request: NewsRequest) => {
   await admin
@@ -22,7 +21,6 @@ export const create = functions.https.onCall(async (request: NewsRequest) => {
     .create({
       title: request.title,
       text: request.text,
-      tag: request.tag,
       createdAt: Timestamp.now(),
       updatedAt: Timestamp.now(),
     })

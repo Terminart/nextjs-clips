@@ -18,7 +18,6 @@ export type News = {
   id: string
   title: string
   text: string
-  tag: string[]
   createdAt: Timestamp
   updatedAt: Timestamp
 }
@@ -37,7 +36,6 @@ const converter: FirestoreDataConverter<News> = {
       id: snapshot.id,
       title: data.title,
       text: data.text,
-      tag: data.tag,
       createdAt: data.createdAt,
       updatedAt: data.updatedAt,
     }
