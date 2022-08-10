@@ -24,6 +24,9 @@ export const path = {
       fourth: '/integration/wizard/fourth',
       fifth: '/integration/wizard/fifth',
     },
+    news: {
+      index: '/integration/news',
+    },
   },
   login: '/login',
   signup: '/signup',
