@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react'
 import { PageTitle } from '@/components/atoms/PageTitle'
 import { News } from '@/components/organisms/News'
-import { News as NewsType } from '@/lib/firestore/news'
+import { News as NewsType } from '@/types/news'
 
 type Props = {
   news: NewsType[]

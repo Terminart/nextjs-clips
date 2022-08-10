@@ -6,11 +6,12 @@ import {
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react'
-import { getAllNews, News as NewsType } from '@/lib/firestore/news'
+import { getAllNews } from '@/lib/firestore/news'
 import format from 'date-fns/format'
 import { InfiniteScroll } from '@/components/organisms/InfiniteScroll'
 import { useState } from 'react'
 import _ from 'lodash'
+import { News as NewsType } from '@/types/news'
 
 type Props = {
   news: NewsType[]
@@ -18,7 +19,7 @@ type Props = {
 
 export const News = ({ news }: Props) => {
   const [list, setList] = useState(news)
-  const [hasMore, setHasMore] = useState(true)
+  const [hasMore, setHasMore] = useState(news.length >= 10)
 
   const next = () => {
     getAllNews(_.last(list)?.createdAt).then((results) => {
