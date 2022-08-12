@@ -1,6 +1,7 @@
 import { getApps, initializeApp } from 'firebase/app'
 import { connectFirestoreEmulator, getFirestore } from '@firebase/firestore'
 import { connectFunctionsEmulator, getFunctions } from '@firebase/functions'
+import { connectAuthEmulator, getAuth } from '@firebase/auth'
 
 if (!getApps().length) {
   initializeApp({
@@ -23,6 +24,11 @@ if (!getApps().length) {
       getFunctions(),
       'localhost',
       Number(process.env.NEXT_PUBLIC_FIREBASE_FUNCTIONS_EMULATOR_PORT)
+    )
+
+    connectAuthEmulator(
+      getAuth(),
+      `http://localhost:${process.env.NEXT_PUBLIC_FIREBASE_AUTH_EMULATOR_PORT}`
     )
   }
 }
