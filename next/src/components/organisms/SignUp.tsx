@@ -11,6 +11,9 @@ export const SignUp = () => {
       <Formik
         initialValues={{ email: '', password: '' }}
         onSubmit={(values) => {
+          alert('this function is NOT available now.')
+          return
+
           createUserWithEmailAndPassword(
             getAuth(),
             values.email,

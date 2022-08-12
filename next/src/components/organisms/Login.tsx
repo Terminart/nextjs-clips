@@ -12,6 +12,9 @@ export const Login = () => {
       <Formik
         initialValues={{ email: '', password: '' }}
         onSubmit={(values) => {
+          alert('this function is NOT available now.')
+          return
+
           signInWithEmailAndPassword(getAuth(), values.email, values.password)
             .then(async () => {
               await Router.push('/')
