@@ -8,13 +8,7 @@ import {
   useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react'
-import {
-  CloseIcon,
-  HamburgerIcon,
-  MoonIcon,
-  SearchIcon,
-  SunIcon,
-} from '@chakra-ui/icons'
+import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
 import { IconButton } from '@/components/atoms/IconButton'
 import { HeaderMenu } from '@/components/organisms/HeaderMenu'
 import { TextLinks, TextLinksProps } from '@/components/molecules/TextLinks'
@@ -70,7 +64,6 @@ export const Header = () => {
             icon={useColorModeValue(<MoonIcon />, <SunIcon />)}
             onClick={toggleColorMode}
           />
-          <IconButton aria-label={'search'} icon={<SearchIcon />} />
           {isOpen ? (
             <IconButton
               aria-label={'close menu'}
