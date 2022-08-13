@@ -7,7 +7,7 @@ export type StepProps = {
 
 export const Step = ({ items }: StepProps) => {
   return (
-    <Accordion allowMultiple={true} variant={'step'}>
+    <Accordion allowMultiple={true}>
       {items.map((v, i) => (
         <StepItem {...v} key={i} />
       ))}
