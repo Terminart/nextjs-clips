@@ -3,10 +3,11 @@ import {
   FormErrorMessage,
   FormLabel,
   Input,
+  InputProps,
 } from '@chakra-ui/react'
 import { Field } from 'formik'
 
-type Props = {
+type Props = InputProps & {
   id: string
   label: string
   type?: 'text' | 'password'
@@ -22,6 +23,7 @@ export const FormInput = ({
   error,
   touched,
   isRequired,
+  ...props
 }: Props) => {
   return (
     <FormControl isInvalid={!!error && touched} isRequired={isRequired}>
@@ -36,6 +38,7 @@ export const FormInput = ({
         w={'full'}
         mt={2}
         variant={'underline'}
+        {...props}
       />
       <FormErrorMessage>{error}</FormErrorMessage>
     </FormControl>

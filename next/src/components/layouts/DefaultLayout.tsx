@@ -1,4 +1,4 @@
-import { Header } from '@/components/templates/Header'
+import { Header } from '@/components/organisms/Header'
 import { PropsWithChildren } from 'react'
 import { Box, BoxProps } from '@chakra-ui/react'
 
