@@ -54,6 +54,7 @@ export const SignUp = () => {
                 label={'Email'}
                 error={errors.email}
                 touched={touched.email}
+                autoComplete={'email'}
               />
               <FormInput
                 id={'password'}
@@ -61,6 +62,7 @@ export const SignUp = () => {
                 type={'password'}
                 error={errors.password}
                 touched={touched.password}
+                autoComplete={'new-password'}
               />
               <FormInput
                 id={'confirmPassword'}
@@ -68,6 +70,7 @@ export const SignUp = () => {
                 type={'password'}
                 error={errors.confirmPassword}
                 touched={touched.confirmPassword}
+                autoComplete={'new-password'}
               />
             </VStack>
             <Center mt={8}>
